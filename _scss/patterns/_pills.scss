@@ -1,0 +1,23 @@
+
+/* ==========================================================================
+    PILLS
+   ========================================================================== */
+
+.pills {
+    @extend .nav;
+
+    a {
+        border-radius: 1.5em;
+        padding: spacer(2) spacer(3);
+
+        &:hover {
+            background: rgba(0,0,0,.05);
+        }
+
+        &.active {
+            background: $primary-color;
+            color: #fff;
+        }
+
+    }
+}

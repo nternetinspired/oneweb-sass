@@ -1,0 +1,124 @@
+
+// A modular scale generates harmonious font sizes and baseline height: http://modularscale.com/
+$scale:                 1.414;
+
+// ==========================================================================
+//  ROOT RULES
+// ==========================================================================
+
+// Root element colours.
+$root-color:            rgb(71, 71, 80);
+$root-background:       rgb(249,249,255);
+
+// Also set body to allow faux footers.
+$body-background:       rgb(255,255,255);
+
+// Default font-size.
+$root-size:             16px; // Set in px, it will be converted to ems.
+
+// Set leading.
+$root-baseline:         $scale; // Unitless value, doesn't have to be the same as $scale.
+
+// Default font-weight.
+$root-weight:           400;
+
+// Constrain content widths to maintain an optimal measure.
+$wrapper-width:         45em;
+
+
+// ==========================================================================
+//  DEFAULT FONT STACKS
+// ==========================================================================
+
+// Our font stacks
+$sans-family:           sans-serif;
+$serif-family:          serif;
+$code-font-family:      monospace;
+
+// Project element stacks
+$root-family:           $sans-family;
+$button-family:         $sans-family;
+$heading-family:        $sans-family;
+
+
+// ==========================================================================
+//  BRANDING
+// ==========================================================================
+
+// Brand palette
+$brand-color:           rgb(86, 148, 241); // We'll spin a pallette from this
+
+// Triadic color scheme? Go!
+$primary-color:         $brand-color;
+$complement-color:      adjust_hue($brand-color, 180);
+$secondary-color: 	  adjust_hue($brand-color, 120);
+$tertiary-color: 	   adjust_hue($brand-color, -120);
+
+// UI elements colours, used in badges, buttons, labels, etc.
+$brand-alert: 	      rgb(252,248,227);
+$brand-danger:          rgb(217,83,79);
+$brand-info:            rgb(91,192,222);
+$brand-primary:   	  rgb(50,118,177);
+$brand-success:         rgb(92,184,92);
+$brand-warning:	     rgb(240,173,78);
+
+// Default colour for objects and borders.
+$brand-background:      rgb(252,252,255);
+$input-background:      rgb(255,255,255); // form inputs
+$pre-background:        rgb(248,248,255);
+
+// Borders
+$border-color:          rgb(238,238,238);
+$border-style:          solid;
+
+// The default size of rounded corners.
+$brand-radius:          .25em;
+$button-radius:         .25em;
+
+
+// ==========================================================================
+//  LINKS
+// ==========================================================================
+
+// Link colours.
+$link-color:            $brand-color;
+$link-color-hover:      darken($brand-color, 10%);
+$link-color-visited:    darken($brand-color, 10%);
+
+
+// ==========================================================================
+//  HEADINGS
+// ==========================================================================
+
+// Heading weight
+$heading-weight:        400;
+
+// Heading color
+$heading-color:         $root-color;
+
+
+// ==========================================================================
+//  TYPOGRAPHY
+// ==========================================================================
+
+$show-baseline:         false; // A visual guide to help correct baseline.
+
+// Paragraph settings
+$paragraph-indent:      false; // Get classy?
+$paragraph-justify:     false;
+
+// Default quote marks.
+$open-quote:            \201C; // If you're French you'll want to change these.
+$close-quote:           \201D;
+
+
+// ==========================================================================
+//  BREAKPOINTS
+// ==========================================================================
+
+// Specifying breakpoints in ems accounts changes in content size.
+$xs:                    20em;
+$sm:                    45em;
+$md:                    62em;
+$lg:                    90em;
+$xl:                    118em;

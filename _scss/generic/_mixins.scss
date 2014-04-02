@@ -1,0 +1,197 @@
+
+// ==========================================================================
+//  MIXINS
+// ==========================================================================
+
+// Set boxsizing, defaults to border-box.
+@mixin box-sizing($boxsize: border-box) {
+    -webkit-box-sizing: $boxsize;
+    -moz-box-sizing: $boxsize;
+    -ms-box-sizing: $boxsize;
+    box-sizing: $boxsize;
+}
+
+// Cross-browser opacity
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack.
+@mixin clearfix {
+    &:before,
+    &:after{
+        content:"";
+        display:table;
+    }
+    &:after{
+        clear:both;
+    }
+}
+
+// Vertically align stuff.
+@mixin valign(){
+
+        &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
+}
+
+/*
+* @include triangle within a pseudo element and add positioning properties (ie. top, left)
+* $direction: up, down, left, right
+*/
+@mixin triangle($direction, $size: 6px, $color: $root-color){
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0; width: 0;
+  @if ($direction == 'up'){
+    border-bottom: $size solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  }
+  @else if ($direction == 'down'){
+    border-top: $size solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  }
+  @else if ($direction == 'left'){
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-right: $size solid $color;
+  }
+  @else if ($direction == 'right'){
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+// Hyphenate text.
+@mixin hyphens() {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+}
+
+// Basic transitions.
+@mixin transition($transition: all .3s ease) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+// Better box-shadows.
+@mixin box-shadow($shadow1, $shadow2:false, $shadow3:false) {
+    $shadows: $shadow1;
+    @if $shadow2 { $shadows: $shadow1, $shadow2; }
+    @if $shadow3 { $shadows: $shadow1, $shadow2, $shadow3; }
+    -webkit-box-shadow: $shadows;
+    -moz-box-shadow: $shadows;
+    box-shadow: $shadows;
+}
+
+// Basic horizontal gradients.
+@mixin horizontal($startColor: $brand-color, $endColor: lighten($brand-color, 10%)) {
+    background-color: $endColor;
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(left, $startColor, $endColor);                   // Safari 5.1+, Chrome 10+
+    background-image: -moz-linear-gradient(left, $startColor, $endColor);                      // FF 3.6+
+    background-image: -ms-linear-gradient(left, $startColor, $endColor);                       // IE10
+    background-image: -o-linear-gradient(left, $startColor, $endColor);                        // Opera 11.10
+    background-image: linear-gradient(left, $startColor, $endColor);                           // W3C
+    background-repeat: repeat-x;
+}
+
+// Basic vertical gradients.
+@mixin vertical($startColor: $brand-background, $endColor: darken($brand-background, 2%)) {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(top, $startColor, $endColor);                    // Safari 5.1+, Chrome 10+
+    background-color: $endColor;
+    background-image: -moz-linear-gradient(top, $startColor, $endColor);                       // FF 3.6+
+    background-image: -ms-linear-gradient(top, $startColor, $endColor);                        // IE10
+    background-image: -o-linear-gradient(top, $startColor, $endColor);                         // Opera 11.10
+    background-image: linear-gradient(top, $startColor, $endColor);                            // W3C
+    background-repeat: repeat-x;
+}
+
+// Media query mixin to add defined breakpoint.
+//
+// Please note, as this is a mobile-first framework the layout is mobile by
+// default. Palm represents the first breakpoint encountered as screen size
+// increases.
+// Use the media query mixin like this:
+//
+// @include mq(lg) {
+//       your-desktop-styles-here;
+// }
+
+@mixin mq($media-query) {
+
+    @if $media-query == xs {
+        @media only screen and (min-width: $xs) {
+            @content;
+        }
+    }
+
+    @if $media-query == sm {
+        @media only screen and (min-width: $sm) {
+            @content;
+        }
+    }
+
+    @if $media-query == md {
+        @media only screen and (min-width: $md) {
+            @content;
+        }
+    }
+
+    @if $media-query == lg {
+        @media only screen and (min-width: $lg) {
+            @content;
+        }
+    }
+
+    @if $media-query == xl {
+        @media only screen and (min-width: $xl) {
+            @content;
+        }
+    }
+}
+
+// A small, internally-used function to remove the units from a given value. http://bit.ly/1mKlVrP
+@function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+// Slices the root lineheight value into smaller chunks.
+$baseline-fraction: strip-units(($root-baseline * $root-size) / 4);
+
+// Converts the $root-size value to EMs for use in the functions below.
+$root-size-em: ($root-size / 16px) * 1em;
+
+// Returns an EM value that is context dependent. Derived from: http://ianrose.me/typesettings/
+@function spacer($multiplier: $baseline-fraction, $font-size: $root-size-em) {
+    @return ($multiplier * $baseline-fraction) / (strip-units($font-size) * strip-units($root-size)) * 1em;
+}
+
+// Sets the type size in EMs.
+@mixin font-size($font-size: $root-size-em) {
+    font-size: $font-size;
+}
+
+// Sets the type in EMs with line-height and margin based on context.
+@mixin header-size($font-size: $root-size-em) {
+    font-size: $font-size;
+    line-height: ceil($font-size / $root-baseline) * ($root-baseline / $font-size);
+    margin-bottom: spacer(4, $font-size);
+}

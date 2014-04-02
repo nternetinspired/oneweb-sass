@@ -1,0 +1,29 @@
+{
+  "name": "oneweb-sass",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nternetinspired/oneweb-sass",
+  "authors": [
+    "Seth Warburton <seth@internet-inspired.com>"
+  ],
+  "description": "A fat-free Sass framework with a focus on device agnosticism and kick-ass typography.",
+  "main": "_scss",
+  "keywords": [
+    "css",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "Sass",
+    "typography",
+    "lightweight",
+    "semantic"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,199 @@
+
+/* ==========================================================================
+    BUTTONS
+   ========================================================================== */
+
+.btn { // Let's save ourselves from having to use two button classes per button. Bootstrap.
+    background-color: $brand-background;
+    border: 1px solid $border-color;
+    border-color: $border-color darken($border-color, 5%) darken($border-color, 10%);
+    border-radius: $button-radius;
+    color: $root-color;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $button-family;
+    font-weight: $root-weight;
+    line-height: 1;
+    margin-right: spacer(1);
+    margin-bottom: spacer(2);
+    padding: spacer(1) spacer(2);
+    text-shadow: 0 1px 1px rgba(255,255,255,.95);
+    vertical-align: middle;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+
+    @include box-shadow(inset 0 1px 0 0 rgba(255,255,255,.35), 0 1px 2px rgba(0,0,0,.05));
+    @include transition;
+    @include vertical;
+
+    &:hover {
+        border-color: darken($border-color, 5%)  darken($border-color, 10%) darken($border-color, 15%);
+        color: darken($root-color, 10%);
+        text-decoration: none;
+        @include vertical(lighten($brand-background, 1%), darken($brand-background, 1%));
+    }
+
+    &:active,
+    &:focus {
+        border: 1px solid darken($border-color, 15%);
+        outline: none;
+        @include box-shadow(0 0 1px rgba(0,0,0,.25) inset);
+    }
+
+    /* BUTTON COLOURS */
+    &-default, // We don't need to declare multiple button classes. Just one is enough.
+    &-primary,
+    &-success,
+    &-danger,
+    &-info,
+    &-warning {
+        @extend .btn;
+    }
+
+    &-primary,
+    &-success,
+    &-info {
+        color: #fcfcfc;
+        text-shadow: 0 1px 1px rgba(0,0,0,.25);
+
+        &:hover,
+        &:focus {
+            color: #fff;
+        }
+    }
+
+    &-danger,
+    &-warning {
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0,0,0,.25);
+        }
+    }
+
+    &-primary {
+        border-color: darken($brand-primary, 5%) darken($brand-primary, 10%) darken($brand-primary, 15%);
+        @include vertical(lighten($brand-primary, 2%), darken($brand-primary, 3%));
+
+        &:hover,
+        &:focus {
+            border-color: darken($brand-primary, 10%) darken($brand-primary, 15%) darken($brand-primary, 20%);
+            @include vertical(lighten($brand-primary, 5%), darken($brand-primary, 0%));
+        }
+
+        &:active,
+        &:focus {
+            border: 1px solid darken($brand-primary, 20%);
+        }
+    }
+
+    &-success {
+        border-color: darken($brand-success, 5%) darken($brand-success, 10%) darken($brand-success, 15%);
+        @include vertical(lighten($brand-success, 2%), darken($brand-success, 3%));
+
+        &:hover,
+        &:focus {
+            border-color: darken($brand-success, 10%) darken($brand-success, 15%) darken($brand-success, 20%);
+            @include vertical(lighten($brand-success, 5%), darken($brand-success, 0%));
+        }
+
+        &:active,
+        &:focus {
+            border: 1px solid darken($brand-success, 20%);
+        }
+    }
+
+    &-danger {
+
+        &:hover,
+        &:focus {
+            border-color: darken($brand-danger, 10%) darken($brand-danger, 15%) darken($brand-danger, 20%);
+            @include vertical(lighten($brand-danger, 5%), darken($brand-danger, 0%));
+        }
+
+        &:active,
+        &:focus {
+            border: 1px solid darken($brand-danger, 20%);
+        }
+    }
+
+    &-info {
+        border-color: darken($brand-info, 5%) darken($brand-info, 10%) darken($brand-info, 15%);
+        @include vertical(lighten($brand-info, 2%), darken($brand-info, 3%));
+
+        &:hover,
+        &:focus {
+            border-color: darken($brand-info, 10%) darken($brand-info, 15%) darken($brand-info, 20%);
+            color: #fff;
+            @include vertical(lighten($brand-info, 5%), darken($brand-info, 0%));
+        }
+
+        &:active,
+        &:focus {
+            border: 1px solid darken($brand-info, 20%);
+        }
+    }
+
+    &-warning {
+
+        &:hover,
+        &:focus {
+            border-color: darken($brand-warning, 10%) darken($brand-warning, 15%) darken($brand-warning, 20%);
+            @include vertical(lighten($brand-warning, 5%), $brand-warning);
+        }
+
+        &:active,
+        &:focus {
+            border: 1px solid darken($brand-warning, 20%);
+        }
+    }
+
+    /* BUTTON SIZING */
+    &-small {
+        padding: spacer(1, $scale-down1) spacer(2, $scale-down1);
+        @include font-size($scale-down1);
+    }
+
+    &-large {
+        padding: spacer(2) spacer(4);
+    }
+
+    &-huge {
+        padding: spacer(3, $scale-up1) spacer(6, $scale-up1);
+        @include font-size($scale-up1);
+    }
+}
+
+/* BUTTON GROUPS */
+.btn-group {
+
+    @extend %clearfix;
+
+    @include mq(sm) {
+        display: inline-block;
+        margin-bottom: spacer(2);
+        margin-right: spacer(2);
+        vertical-align: top;
+
+        [class*="btn-"] {
+            border-radius: 0;
+            border-width: 1px 1px 1px 0;
+            float: left;
+            margin: 0 ;
+
+            &:first-child {
+                border-width:  1px 1px 1px 1px;
+                border-radius: $button-radius 0 0 $button-radius;
+            }
+
+            &:last-child {
+                border-radius: 0 $button-radius $button-radius 0;
+            }
+
+            &:first-child:last-child {
+                border-radius: $button-radius;
+            }
+        }
+    }
+}

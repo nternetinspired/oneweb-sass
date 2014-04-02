@@ -1,0 +1,34 @@
+
+/* ==========================================================================
+    GITHUB GISTS
+   ========================================================================== */
+
+.gist {
+
+    margin: 0 auto spacer(4) auto;
+
+    table {
+        border: 0;
+        margin: 0;
+    }
+
+    .gist-file {
+        background: $pre-background;
+        border: 1px solid $border-color !important;
+        border-radius: $brand-radius !important;
+        font-family: $code-font-family !important;
+        margin-bottom: 0 !important;
+
+        .gist-data {
+            border: none !important;
+
+            .line-pre {
+                font-family: $code-font-family !important;
+            }
+        }
+
+        .gist-meta {
+            display: none !important;
+        }
+    }
+}

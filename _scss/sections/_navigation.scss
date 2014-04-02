@@ -1,0 +1,59 @@
+
+/* ==========================================================================
+    PRIMARY NAVIGATION
+   ========================================================================== */
+
+.nav-row {
+    margin-bottom: spacer(2);
+    padding: 0;
+}
+
+/* MAIN NAVIGATION */
+[role="navigation"] {
+	@extend .nav;
+//    @extend %wrapper;
+    border-bottom: 1px solid $border-color;
+
+	a {
+		display: block;
+		padding: spacer(2) spacer(2);
+	}
+
+	li {
+        display: block;
+        @include mq(md) {
+            display: inline-block;
+		}
+    }
+
+    ul { // Accounts for the padding applied to nav links above
+        margin-left: spacer(-2);
+        margin-right: spacer(-2);
+    }
+
+	.nav-toggle {
+        @extend .icon-heart;
+
+		@include mq(md) {
+			display: none;
+		}
+	}
+}
+
+/* RESPONSIBLE RESPONSIVE NAV TOGGLING */
+.no-js .nav-toggle { // No JS? Don't need a menu button do we?
+	display: none;
+}
+
+@media only screen and (max-width: $md) { // If the viewport is big enough…
+
+	.nav-drawer.js-nav {  // …and we have .js, hide the nav:
+		height: 0;
+		overflow: hidden;
+
+		&.open { // until the toggle is clicked.
+			height: auto;
+			overflow: visible;
+		}
+	}
+}

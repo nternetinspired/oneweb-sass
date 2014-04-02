@@ -1,0 +1,27 @@
+
+/* ==========================================================================
+    FLUID TYPE
+   ========================================================================== */
+
+/* Slowly increase root font size with viewport */
+html {
+
+    font-size: 87.5%; // 14px if the root was 16px
+
+    @include mq(sm) {
+        font-size: 93.8%; // 15px if the root was 16px
+    }
+
+	@include mq(md) {
+		font-size: 100%; // 16px if the root was 16px
+	}
+
+	@include mq(lg) {
+	    font-size: 106.3%; // 18px if the root was 16px
+	}
+
+	@include mq(xl) {
+		font-size: 112.5%; // 18px if the root was 16px
+	}
+
+}

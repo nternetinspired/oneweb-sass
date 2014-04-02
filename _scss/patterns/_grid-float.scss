@@ -1,0 +1,46 @@
+
+/* ==========================================================================
+    FLOATED GRID
+   ========================================================================== */
+
+// Let Bootstrap join the party. $todo - Seth, revisit this
+.floated-grid-container {
+
+    @extend .clearfix;
+//    margin-left: -$spacer;
+
+    @include mq(xs) {
+
+    	[class*="col-xs"] {
+        	float: left;
+    	}
+    }
+
+    @include mq(sm) {
+
+    	[class*="col-sm"] {
+        	float: left;
+    	}
+    }
+
+    @include mq(md) {
+
+    	[class*="col-md"] {
+        	float: left;
+    	}
+    }
+
+    @include mq(lg) {
+
+    	[class*="col-lg"] {
+        	float: left;
+    	}
+    }
+
+    @include mq(xl) {
+
+    	[class*="col-xl"] {
+        	float: left;
+    	}
+    }
+}

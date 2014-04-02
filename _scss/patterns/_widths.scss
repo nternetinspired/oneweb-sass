@@ -1,0 +1,48 @@
+
+/* ==========================================================================
+    WIDTHS
+   ========================================================================== */
+
+/* $todo Seth. Seriously, revisit this. For shame. */
+@mixin bsgrid-setup($namespace: "col-") {
+
+    /* Twelfths */
+    .#{$namespace}1     { width: 8.333%; }
+    .#{$namespace}2     { width: 16.666%; }
+    .#{$namespace}3     { width: 25%; }
+    .#{$namespace}4     { width: 33.333%; }
+    .#{$namespace}5     { width: 41.666% }
+    .#{$namespace}6     { width: 50%; }
+    .#{$namespace}7     { width: 58.333%; }
+    .#{$namespace}8     { width: 66.666%; }
+    .#{$namespace}9     { width: 75%; }
+    .#{$namespace}10    { width: 83.333%; }
+    .#{$namespace}11    { width: 91.666%; }
+    .#{$namespace}12    { width: 100%; }
+}
+
+@include bsgrid-setup();
+
+// This mixin generates namespaced width declarations at our breakpoints,
+// so that widths can be defined at each breakpoint. For example:
+// <div class="col-sm-6 col-lg-4"> ... </div>
+
+@include mq(xs) {
+    @include bsgrid-setup("col-xs-");
+}
+
+@include mq(sm) {
+    @include bsgrid-setup("col-sm-");
+}
+
+@include mq(md) {
+    @include bsgrid-setup("col-md-");
+}
+
+@include mq(lg) {
+    @include bsgrid-setup("col-lg-");
+}
+
+@include mq(xl) {
+    @include bsgrid-setup("col-xl-");
+}

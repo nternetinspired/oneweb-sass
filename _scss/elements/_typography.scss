@@ -1,0 +1,107 @@
+
+/* ==========================================================================
+    TYPOGRAPHY
+   ========================================================================== */
+
+/* PARAGRAPHS */
+p {
+    margin: 0 0 spacer(4);
+    orphans: 3;
+    widows: 3;
+    word-wrap: break-word;
+
+    @include hyphens;
+
+    //Numbers in paragraphs should kick it Old Skool: http://bit.ly/1g0uevo
+    -moz-font-feature-settings: 'onum=1';
+    -ms-font-feature-settings: 'onum';
+    -webkit-font-feature-settings: 'onum';
+    -o-font-feature-settings: 'onum';
+    font-feature-settings: 'onum';
+
+    @if $paragraph-indent {
+        + p {
+            margin-top: spacer(-4);
+            text-indent: spacer(4);
+        }
+    }
+
+    @include mq(md) {
+        @if $paragraph-justify {
+            text-align: justify;
+        }
+    }
+}
+
+/* Typically used in the first paragraph of an article, for added awesome. */
+.intro {
+    @include font-size($scale-up1);
+    margin-bottom: spacer(4, $scale-up1);
+    line-height: $root-baseline;
+
+    @if $paragraph-indent {
+    //    margin-bottom: spacer(8, $scale-up1);
+    }
+}
+
+/* BLOCK QUOTES */
+
+/* Default margin indent is zeroed out and padded to allow styling of element. */
+blockquote {
+    border-left: 2px solid $border-color;
+    padding: 0 0 0 spacer(4);
+    margin: 0 0 spacer(4) spacer(-4);
+
+    &:before,
+    &:after {
+        content: '';
+        content: none;
+    }
+
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    > cite,
+    + cite {
+        margin-bottom: 0;
+    }
+}
+
+/* CITATIONS */
+cite {
+    display: block;
+    margin-top: spacer(2, $scale-down1);
+    @include font-size($scale-down1);
+
+    &:before {
+        content: "\2014";
+        margin-right: 1em;
+    }
+}
+
+/* INLINE QUOTES */
+q {
+    quotes: "\2018" "\2019" "#{$open-quote}" "#{$close-quote}";
+
+    &:before {
+        content: "\2018";
+        content: open-quote;
+    }
+    &:after {
+        content: "\2019";
+        content: close-quote;
+    }
+}
+
+/* ABBREVIATIONS AND DEFINITIONS */
+abbr {
+    letter-spacing: 0.1em;
+
+    // Abbreviations should use small-caps and be letterspaced: http://bit.ly/1jRD6En
+    -moz-font-feature-settings: 'smcp=1';
+    -ms-font-feature-settings: "smcp";
+    -webkit-font-feature-settings: "smcp";
+    -o-font-feature-settings: "smcp";
+    font-feature-settings: "smcp";
+}

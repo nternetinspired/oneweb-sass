@@ -1,0 +1,36 @@
+
+/* ==========================================================================
+    IMAGES
+   ========================================================================== */
+
+/* Fluid images. */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+}
+
+/* Don't ignore `width` and/or `height` attributes if they are present. */
+img[width],
+img[height] {
+    max-width: none;
+}
+
+%img-rounded {
+	border-radius: 50%;
+}
+
+/*
+ * Image placement variations.
+ * floated images typically need a margin so we extend the
+ * generic float classes here.
+ */
+%img-right {
+    @extend %float-right;
+    margin-left: spacer(4);
+}
+
+%img-left {
+    @extend %float-left;
+    margin-right: spacer(4);
+}

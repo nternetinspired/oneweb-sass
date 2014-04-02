@@ -1,0 +1,12 @@
+
+/* ==========================================================================
+    WELLS
+   ========================================================================== */
+
+.well {
+	background: $root-background;
+	border: 1px solid $border-color;
+    border-radius: $brand-radius;
+    margin-bottom: spacer(4);
+    padding: spacer(4);
+}

@@ -1,0 +1,32 @@
+
+/* ==========================================================================
+    TABLES
+   ========================================================================== */
+
+table {
+    margin-bottom: spacer(4);
+    width:100%;
+}
+
+thead {
+    border-bottom: 1px solid $border-color;
+}
+
+th,
+td {
+    padding: spacer(2) spacer(2);
+    text-align: left;
+}
+
+/* STRIPED TABLES */
+tbody {
+
+    tr {
+//        border-bottom: 1px solid $border-color;
+
+        &:nth-of-type(odd) {
+            background-color: $brand-background;
+        }
+
+    }
+}

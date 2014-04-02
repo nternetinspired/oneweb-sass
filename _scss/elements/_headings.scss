@@ -1,0 +1,86 @@
+
+/* ==========================================================================
+    HEADINGS
+   ========================================================================== */
+
+h1,
+.alpha,
+h2,
+.beta,
+h3,
+.gamma,
+h4,
+.delta,
+h5,
+.epsilon,
+h6,
+.zeta {
+    color: $heading-color;
+    font-family: $heading-family;
+    font-weight: $heading-weight;
+    margin-top: 0;
+    text-rendering :optimizelegibility;
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -ms-font-feature-settings: "liga" 1, "dlig" 1;
+    -o-font-feature-settings: "liga" 1, "dlig" 1;
+    -webkit-font-feature-settings: "liga" 1, "dlig" 1;
+    font-feature-settings: "liga" 1, "dlig" 1;
+}
+
+/* Size increments are based on W3C recommendations, www.w3.org/TR/CSS21/sample.html
+ * but are set according to our chosen modular scale. Increments for h3 and h5 are
+ * zeroed out (1em) at smaller sizes to maintain legibility.
+ */
+h1,
+.alpha {
+    @include header-size($scale-up3);
+
+    @include mq(md) {
+        @include header-size($scale-up4);
+    }
+}
+
+h2,
+.beta {
+    @include header-size($scale-up2);
+
+    @include mq(md) {
+        @include header-size($scale-up3);
+    }
+}
+
+h3,
+.gamma {
+    @include header-size($scale-up1);
+
+    @include mq(md) {
+        @include header-size($scale-up2);
+    }
+}
+
+h4,
+.delta {
+    @include header-size();
+
+    @include mq(md) {
+        @include header-size($scale-up1);
+    }
+}
+
+h5,
+.epsilon {
+    @include header-size();
+
+    @include mq(md) {
+        @include header-size();
+    }
+}
+
+h6,
+.zeta {
+    @include header-size();
+
+    @include mq(md) {
+        @include header-size($scale-down1);
+    }
+}

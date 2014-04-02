@@ -1,0 +1,58 @@
+
+/* ==========================================================================
+    ROOT
+   ========================================================================== */
+
+/*
+ * Border-box *all the things*, as suggested in:
+ * http:// paulirish.com/2012/box-sizing-border-box-ftw
+ */
+
+* {
+    &,
+    &:before,
+    &:after {
+        @include box-sizing;
+    }
+}
+
+
+/* Define the root element styles. */
+html {
+    background: $root-background;
+    color: $root-color;
+    overflow-y: scroll;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
+/* Style the body element styles. */
+body {
+    background: $body-background;
+    font: #{$root-weight} #{percentage($root-size / 16px)}/#{$root-baseline} $root-family;
+
+    // If set in project vars show the typographic baseline visually
+    @if $show-baseline == true {
+        background-image: url(http://basehold.it/i/#{strip-units(round($root-baseline * $root-size))});
+    }
+}
+
+
+/* Colour selected text. */
+ ::-moz-selection {
+    background-color: $brand-color;
+    color: #fff;
+    text-shadow: none;
+}
+
+::selection {
+    background-color: $brand-color;
+    color: #fff;
+    text-shadow: none;
+}

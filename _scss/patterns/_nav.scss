@@ -1,0 +1,36 @@
+
+/* ==========================================================================
+    NAVIGATION
+   ========================================================================== */
+
+/* Remove list styles and throw child elements into a horizontal list. */
+.nav {
+
+    list-style: none;
+    padding: 0;
+
+    a {
+        display: block;
+        padding: spacer(1);
+        border: 0;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+}
+
+/* Creates a vertical list of blocky, finger-friendly, links. */
+.nav-stacked {
+
+    li {
+
+        display: block;
+
+        &,
+        a {
+
+        }
+    }
+}

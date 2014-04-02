@@ -1,0 +1,29 @@
+
+/* ==========================================================================
+    RESPONSIVE TABLES
+   ========================================================================== */
+
+@media (max-width: $md) {
+
+    .table-responsive {
+        overflow-y: hidden;
+        overflow-x: scroll;
+        width: 100%;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        -webkit-overflow-scrolling: touch;
+
+        // Ensure the content doesn't wrap
+        thead,
+        tbody,
+        tfoot {
+
+            tr {
+                th,
+                td {
+                    white-space: nowrap;
+                }
+            }
+        }
+
+    }
+}

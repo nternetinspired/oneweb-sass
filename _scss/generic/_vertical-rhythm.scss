@@ -1,0 +1,24 @@
+
+/* ==========================================================================
+    VERTICAL RHYTHM
+   ========================================================================== */
+
+/*
+ * Applies consistent spacing, derived from the baseline height and default
+ * font size, to generate a consistent vertical rhythm throughout.
+ */
+address,
+dl,
+hgroup,
+kbd,
+meter,
+ol,
+pre,
+progress,
+select,
+small,
+textarea,
+ul {
+	margin-top: 0;
+	margin-bottom: spacer(4);
+}

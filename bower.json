@@ -6,9 +6,9 @@
     "Seth Warburton <seth@internet-inspired.com>"
   ],
   "description": "A fat-free Sass framework with a focus on device agnosticism and kick-ass typography.",
-  "dependencies": [
+  "dependencies": {
     "fontawesome": "~4.0.3"
-  ],
+  }
   "main": "_scss",
   "keywords": [
     "css",

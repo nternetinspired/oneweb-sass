@@ -14,7 +14,7 @@ shortly replace, the Sass framework currently powering [Oneweb](http://joomlafut
  * *Everything* is sized in ems; font sizes, padding and margins, allowing designs to scale.
  * All font-sizing is set according to a, user-defined modular, scale. No maths required.
  * It's incredibly lightweight. Low-specificity patterns keep your css small and elegant.
- * Most modules are standalone. Simply comment them out in [style.scss](style.css) if you don't use them.
+ * Most modules are standalone. Simply comment them out in [style.scss](style.scss) if you don't use them.
  * The only dependency is Sass.
 
 ## Is Oneweb right for you?
@@ -28,7 +28,7 @@ Possibly not. Oneweb is intended to be used by people who:
 ## Installation
 There are three ways to include oneweb-sass in your project
 
-- Install with [Bower](http://bower.io): `bower install oneweb-sass` (recommended).
+- Install with [Bower](http://bower.io) (recommended): `bower install oneweb-sass`.
 - [Download the latest release](https://github.com/nternetinspired/oneweb-sass/archive/master.zip).
 - Clone the repo: `git clone https://github.com/nternetinspired/oneweb-sass.git`.
 

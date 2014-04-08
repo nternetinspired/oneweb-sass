@@ -27,10 +27,10 @@ There are three ways to include oneweb-sass in your project
 
 ## Contributing
 Contributions are welcome. Please ensure that any code submissions are authored
-according to the [Oneweb styleguide](STYLEGUIDE) and submit a pull request.
+according to the [Oneweb styleguide](STYLEGUIDE.md) and submit a pull request.
 
 ## Issues
 If you find something wrong or have some suggestions how Oneweb can be improved, please use Github's issue reporting features or submit a pull request. If you email me with such things you will be ignored.
 
 ## Copyright and license
-Code and documentation copyright 2014 Seth Warburton and released under [the MIT license](LICENSE).
+Oneweb-sass is released under [the MIT license](LICENSE).

@@ -7,28 +7,29 @@
    License:    MIT
    ========================================================================== */
 
-// Let's start by importing project variables.
-// If you want to change something, check here first.
-@import "variables";
+/* Import our project variables */
+@import "variables"; // Want to change something? Check here first.
 
-// Import files which generate no output but are used by other files.
+
+/* GENERIC */
+/* ========================================================================== */
+// Imports files which generate no output but are used by other modules.
+@import "generic/helpers";
 @import "generic/mixins";
 @import "generic/modular-scale";
-
-// Standardise browser elements
-@import "generic/normalise";
-
-// Helper classes like float and clearfix.
-@import "generic/helpers";
-@import "generic/fluid-type";
-//@import "generic/syntax"; // Code highlighting
+@import "generic/normalise"; // Normalise browser behaviours.
+@import "generic/fluid-type"; // Responsive type scaling, globally.
+//@import "generic/syntax"; // Code highlighting.
 @import "generic/vertical-rhythm";
 
-/*
- * The following rules contain generic styles of the type applicable primarily
- * to named html elements, like <body>, <table> , or to stylistic classes
- * that can be applied to various objects.
- */
+
+/* ELEMENTS */
+/* ========================================================================== */
+//
+// Global styles applicable primarily to named html
+// elements, like <body>, <table>. <header>, <footer> and
+// <main> are too generic and included as sections, below.
+//
 @import "elements/root";
 @import "elements/articles";
 @import "elements/code";
@@ -43,16 +44,19 @@
 @import "elements/tables";
 @import "elements/typography";
 
-/*
- * CSS targetting third-party code
- */
 
+/* VENDOR */
+/* ========================================================================== */
+// Any CSS targetting third-party code.
 @import "vendor/font-awesome";
 
-/*
- * The following are re-usable 'objects' that bring recurring CSS patterns
- * into discrete and easily maintainable modules.
- */
+
+/* PATTERNS */
+/* ========================================================================== */
+//
+// The following are re-usable 'objects' that bring recurring CSS patterns
+// into discrete and easily maintainable modules.
+//
 
 /* Pick a grid, any grid. */
 @import "patterns/grid-inline";
@@ -61,11 +65,10 @@
 
 @import "patterns/alerts";
 @import "patterns/buttons";
-//@import "patterns/close"; // Specific to certain frameworks
-
+//@import "patterns/close"; // Specific to certain frameworks.
 @import "patterns/gists";
 @import "patterns/hero";
-//@import "patterns/labels"; // Specific to certain frameworks
+//@import "patterns/labels"; // Specific to certain frameworks.
 @import "patterns/media";
 @import "patterns/nav";
 @import "patterns/overlays";
@@ -77,11 +80,10 @@
 @import "patterns/widths";
 @import "patterns/wrapper";
 
-/*
- * The following are re-usable 'objects' that bring recurring CSS patterns
- * into discrete and easily maintainable modules.
- */
 
+/* SECTIONS */
+/* ========================================================================== */
+// Document-level structural elements and specific page regions.
 @import "sections/footer";
 @import "sections/header";
 @import "sections/main";

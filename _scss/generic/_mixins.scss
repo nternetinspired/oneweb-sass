@@ -11,6 +11,12 @@
     box-sizing: $boxsize;
 }
 
+// Better OSX font-rendering
+@mixin font-smoothing() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 // Cross-browser opacity
 @mixin opacity($opacity) {
     opacity: $opacity;

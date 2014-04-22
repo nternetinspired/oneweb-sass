@@ -20,9 +20,7 @@ select,
 textarea {
     font-weight: $root-weight;
     // Even though this is set at root, we need to re-declare for form elements.
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    font-smoothing: antialiased;
+    @include font-smoothing;
 }
 
 /* Remove default fieldset styles. */

@@ -23,12 +23,9 @@ html {
     color: $root-color;
     overflow-y: scroll;
 
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+    @include font-smoothing;
 }
 
 

@@ -14,7 +14,7 @@ shortly replace, the Sass framework currently powering [Oneweb](http://joomlafut
  * *Everything* is sized in ems; font sizes, padding and margins, allowing designs to scale.
  * All font-sizing is set according to a, user-defined modular, scale. No maths required.
  * It's incredibly lightweight. Low-specificity patterns keep your css small and elegant.
- * Most modules are standalone. Simply comment them out in [style.scss](style.scss) if you don't use them.
+ * Most modules are standalone. Simply comment them out in [style.scss](_scss/style.scss) if you don't use them.
  * The only dependency is Sass.
 
 ## Is Oneweb right for you?

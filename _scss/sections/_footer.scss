@@ -10,5 +10,6 @@
 }
 
 [role="contentinfo"] {
+    @extend %row;
 	@extend %wrapper;
 }

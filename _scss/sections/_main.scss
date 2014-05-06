@@ -8,5 +8,6 @@
 }
 
 [role="main"] {
+    @extend %row;
     @extend %wrapper;
 }

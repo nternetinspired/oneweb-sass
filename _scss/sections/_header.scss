@@ -7,5 +7,6 @@
 }
 
 [role="banner"] {
+    @extend %row;
 	@extend %wrapper;
 }

@@ -14,8 +14,8 @@
 /* GENERIC */
 /* ========================================================================== */
 // Imports files which generate no output but are used by other modules.
-@import "generic/helpers";
 @import "generic/mixins";
+@import "generic/helpers";
 @import "generic/modular-scale";
 @import "generic/normalise"; // Normalise browser behaviours.
 @import "generic/fluid-type"; // Responsive type scaling, globally.

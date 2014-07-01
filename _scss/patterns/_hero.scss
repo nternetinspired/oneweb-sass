@@ -3,15 +3,15 @@
     HERO
    ========================================================================== */
 
+// Displays big text, on a colored background, with padding.
 .hero {
 
-	position: relative;
+	@extend .content;
+	background: $brand-primary;
 	text-align: center;
 
-    // Reversed text hero, for use on dark backgrounds
-    &-reversed {
-
-        @extend .hero;
+	// Reversed text hero, for use on dark backgrounds or over dark images.
+	&.reversed {
 
 		&,
 		h1, .alpha,
@@ -19,11 +19,21 @@
 		h3, .gamma {
 			color: $body-background !important;
 		}
-    }
+	}
+}
 
-	&-content {
-		// Vertically and horizontally center .hero-content
-		@include centered;
+// Displays big text, with padding, centered over an image. Use instead of .hero
+.hero-image {
+
+	@extend .hero;
+	position: relative;
+	padding: 0 !important;
+
+	.hero-content {
+		// Vertically and horizontally center .hero-content over the image.
+		@extend .content;
+		width: 100%;
 		z-index: 1;
+		@include centered;
 	}
 }

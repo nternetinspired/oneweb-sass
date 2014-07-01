@@ -28,6 +28,16 @@ html {
     @include font-smoothing;
 }
 
+@if $opentype == true {
+
+    // Turn on kerning, standard ligatures, and proportional and oldstyle numerals.
+    // Turn off all other ligatures, tabular, lining numerals and alternates.
+
+    html,
+    body {
+      font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0; /* 1. */
+    }
+}
 
 /* Style the body element styles. */
 body {

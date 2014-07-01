@@ -40,6 +40,8 @@ $root-family:           $sans-family !default;
 $button-family:         $sans-family !default;
 $heading-family:        $sans-family !default;
 
+// Enable OpenType font features? Inspired by: https://github.com/kennethormandy/normalize-opentype.css
+$opentype:              true !default;
 
 // ==========================================================================
 //  BRANDING

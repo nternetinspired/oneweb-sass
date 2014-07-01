@@ -19,12 +19,21 @@ h6,
     font-family: $heading-family;
     font-weight: $heading-weight;
     margin-top: 0;
-    text-rendering :optimizelegibility;
-    -moz-font-feature-settings: "liga=1, dlig=1";
-    -ms-font-feature-settings: "liga" 1, "dlig" 1;
-    -o-font-feature-settings: "liga" 1, "dlig" 1;
-    -webkit-font-feature-settings: "liga" 1, "dlig" 1;
-    font-feature-settings: "liga" 1, "dlig" 1;
+}
+
+@if $opentype == true {
+
+    // Turn on discretionary ligatures for larger headings
+    h1,
+    .alpha,
+    h2,
+    .beta,
+    h3,
+    .gamma {
+        -webkit-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
+        -moz-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
+        font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
+    }
 }
 
 /* Size increments are based on W3C recommendations, www.w3.org/TR/CSS21/sample.html

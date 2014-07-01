@@ -94,14 +94,37 @@ q {
     }
 }
 
-/* ABBREVIATIONS AND DEFINITIONS */
+/* ABBREVIATIONS */
 abbr {
-    letter-spacing: 0.1em;
 
-    // Abbreviations should use small-caps and be letterspaced: http://bit.ly/1jRD6En
-    -moz-font-feature-settings: 'smcp=1';
-    -ms-font-feature-settings: "smcp";
-    -webkit-font-feature-settings: "smcp";
-    -o-font-feature-settings: "smcp";
-    font-feature-settings: "smcp";
+    text-transform: uppercase;
+
+    @if $opentype == true {
+
+    // Turn on small caps for upper and lowercase letters
+    -webkit-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1;
+    -moz-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1;
+    }
+}
+
+/* SUPER AND SUBSCRIPTS */
+sup {
+
+    @if $opentype == true {
+        // Turn on proper supercript numerals
+        -webkit-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
+        -moz-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
+        font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
+    }
+}
+
+sub {
+
+    @if $opentype == true {
+        // Turn on proper subscript numerals
+        -webkit-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
+        -moz-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
+        font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
+    }
 }

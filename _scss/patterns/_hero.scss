@@ -5,76 +5,25 @@
 
 .hero {
 
-//  @extend %overlay-complement; // Color-wash a hero image. See ../overlays.scss
-//  background: $complement-color; // Color the background if you don't use an image.
-    color: $heading-color;
-    font-weight: $heading-weight;
-    margin-bottom: spacer(4);
-	overflow: hidden;
-    padding: spacer(12) 0;
 	position: relative;
 	text-align: center;
-
-    @include mq(sm) {
-        padding: spacer(24) 0;
-    }
-
-    // If your hero is outside a wrapper you probably want to uncomment these:
-    @include mq(md) {
-    //    padding: spacer(32) 0;
-    }
-
-    @include mq(lg) {
-    //    padding: spacer(48) 0;
-    }
-
-    @include mq(xl) {
-    //    padding: spacer(60) 0;
-    }
 
     // Reversed text hero, for use on dark backgrounds
     &-reversed {
 
         @extend .hero;
 
-        h1,
-        p {
-            color: $body-background;
-        }
+		&,
+		h1, .alpha,
+		h2, .beta,
+		h3, .gamma {
+			color: $body-background !important;
+		}
     }
 
-    h1 {
-        @include header-size($scale-up2);
-
-        @include mq(md) {
-            @include header-size($scale-up3);
-        }
-    }
-
-    p {
-        margin-bottom: 0;
-        @include mq(sm) {
-            @include header-size($scale-up1);
-        }
-
-        @include mq(md) {
-            @include header-size($scale-up2);
-        }
-    }
-
-    h1,
-    p {
-        position: relative;
-        z-index: 1;
-    }
-
-	img {
-        bottom: 0;
-		left: 0;
-        position: absolute;
-		right: 0;
-        top: 0;
-        min-width: 100%;
-		z-index: 0;
+	&-content {
+		// Vertically and horizontally center .hero-content
+		@include centered;
+		z-index: 1;
 	}
 }

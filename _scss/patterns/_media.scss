@@ -1,4 +1,3 @@
-
 /* ==========================================================================
     MEDIA
    ========================================================================== */
@@ -11,31 +10,61 @@
  * floats an image or anything with a .media-object class to the left
  * and gives it a right margin.
  *
- * To reverse this pattern, simply use .media-object-right.
+ * To reverse this pattern, simply add a .right class to the same element, eg:
+ * class="media right".
+ *
+ * The .media-responsive pattern simply defers the .media-object floating to the 
+ * specified breakpoint.
  */
 
+
+
 .media {
-    margin-bottom: spacer(4);
+    @extend %clearfix;
 
-    &.media-content {
-        @extend %clearfix;
-    }
+    .media-object {
+        float: left;
+        margin: 0 spacer(4) 0 0;
 
-    .media-content {
-        overflow: hidden;
-
-        &:last-child {
-            margin-bottom: 0;
+        img {
+            margin: 0;
         }
     }
 
-    .media-object {
-        @extend %img-left;
+    &.right {
+        .media-object {
+            float: right;
+            margin: 0 0 0 spacer(4);
+        }
     }
+}
 
-    .media-object-right {
-        @extend %img-right;
-        margin-right: 0;
+
+.media-responsive {
+    @extend %clearfix;
+
+    @include mq(md) {
+
+        .media-object {
+            float: left;
+            margin: 0 spacer(4) 0 0;
+            max-width: 50%;
+
+            img {
+                margin: 0;
+            }
+        }
+
+        &.right {
+            .media-object {
+                float: right;
+                margin: 0 0 0 spacer(4);
+            }
+        }
     }
+}
 
+// Text content of media and media-responsive objects
+.media-content {
+    overflow: hidden;
 }

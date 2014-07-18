@@ -17,23 +17,32 @@ h6,
 .zeta {
     color: $heading-color;
     font-family: $heading-family;
-    font-weight: $heading-weight;
     margin-top: 0;
 }
 
-@if $opentype == true {
+h1,
+.alpha,
+h2,
+.beta,
+h3,
+.gamma {
+    font-weight: $heading-weight;
 
-    // Turn on discretionary ligatures for larger headings
-    h1,
-    .alpha,
-    h2,
-    .beta,
-    h3,
-    .gamma {
+    @if $opentype == true {
+        // Turn on discretionary ligatures for larger headings
         -webkit-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
         -moz-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
         font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
     }
+}
+
+h4,
+.delta,
+h5,
+.epsilon,
+h6,
+.zeta {
+    font-weight: $root-weight;
 }
 
 /* Size increments are based on W3C recommendations, www.w3.org/TR/CSS21/sample.html

@@ -58,15 +58,11 @@
 // into discrete and easily maintainable modules.
 //
 
-/* Pick a grid, any grid. */
-@import "patterns/grid-inline";
-//@import "patterns/grid-float";
-//@import "patterns/grid-flexbox";
-
 @import "patterns/alerts";
 @import "patterns/buttons";
 //@import "patterns/close"; // Specific to certain frameworks.
 @import "patterns/gists";
+@import "patterns/grid";
 @import "patterns/hero";
 //@import "patterns/labels"; // Specific to certain frameworks.
 @import "patterns/media";

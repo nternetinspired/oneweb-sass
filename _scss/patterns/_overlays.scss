@@ -4,7 +4,7 @@
    ========================================================================== */
 
 // Create a lovely color-wash overlay, images for example.
-%overlay {
+.overlay {
 
     &:before {
         content: "";
@@ -14,12 +14,12 @@
         right: 0;
         bottom: 0;
         left: 0;
-        z-index: 1;
+        z-index: -1;
     }
 
     &-primary {
 
-        @extend %overlay;
+        @extend .overlay;
 
         &:before {
             background: transparentize($primary-color, .75);
@@ -28,7 +28,7 @@
 
     &-complement {
 
-        @extend %overlay;
+        @extend .overlay;
 
         &:before {
             background: transparentize($complement-color, .75);
@@ -37,7 +37,7 @@
 
     &-secondary {
 
-        @extend %overlay;
+        @extend .overlay;
 
         &:before {
             background: transparentize($secondary-color, .75);
@@ -46,7 +46,7 @@
 
     &-tertiary {
 
-        @extend %overlay;
+        @extend .overlay;
 
         &:before {
             background: transparentize($tertiary-color, .75);

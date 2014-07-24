@@ -13,18 +13,19 @@
  * To reverse this pattern, simply add a .right class to the same element, eg:
  * class="media right".
  *
- * The .media-responsive pattern simply defers the .media-object floating to the 
+ * The .media-responsive pattern simply defers the .media-object floating to the
  * specified breakpoint.
  */
 
 
 
 .media {
-    @extend %clearfix;
+    @extend .clearfix;
 
     .media-object {
         float: left;
         margin: 0 spacer(4) 0 0;
+        max-width: 50%;
 
         img {
             margin: 0;
@@ -41,7 +42,7 @@
 
 
 .media-responsive {
-    @extend %clearfix;
+    @extend .clearfix;
 
     @include mq(md) {
 

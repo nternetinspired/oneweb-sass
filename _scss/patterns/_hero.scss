@@ -1,14 +1,45 @@
-
 /* ==========================================================================
     HERO
    ========================================================================== */
 
 // Displays big text, on a colored background, with padding.
 .hero {
-
-	@extend .content;
-	background: $brand-primary;
+	position: relative;
 	text-align: center;
+	z-index: 1;
+
+	h1, .alpha,
+	h2, .beta {
+
+		@include mq(lg) {
+			@include header-size($scale-up5);
+			margin-bottom: spacer(8, $scale-up5);
+		}
+	}
+
+	p {
+
+		@include font-size($scale-up1);
+		margin-bottom: spacer(4, $scale-up1);
+
+		@include mq(md) {
+			@include font-size($scale-up2);
+			margin-bottom: spacer(4, $scale-up2);
+		}
+
+		@include mq(lg) {
+		//	@include font-size($scale-up3);
+		//	margin-bottom: spacer(4, $scale-up3);
+		}
+	}
+
+	@include mq(sm) {
+	//	padding: spacer(12) 0 spacer(16);
+	}
+
+	@include mq(md) {
+	//	padding: spacer(20) 0 spacer(24);
+	}
 
 	// Reversed text hero, for use on dark backgrounds or over dark images.
 	&.reversed {
@@ -22,18 +53,10 @@
 	}
 }
 
-// Displays big text, with padding, centered over an image. Use instead of .hero
+// Displays big text, with padding, centered over an image.
 .hero-image {
-
 	@extend .hero;
-	position: relative;
-	padding: 0 !important;
-
-	.hero-content {
-		// Vertically and horizontally center .hero-content over the image.
-		@extend .content;
-		width: 100%;
-		z-index: 1;
-		@include centered;
-	}
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
 }

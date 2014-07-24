@@ -1,0 +1,21 @@
+
+/* ==========================================================================
+    BREADCRUMB
+   ========================================================================== */
+
+.breadcrumb {
+
+    margin: spacer(2, $scale-down1);
+    @include font-size($scale-down1);
+
+    li {
+        display: inline-block;
+        margin-right: .25em;
+
+        &:after{
+            content:"\00BB" "\00A0"; // Chevron style
+        //    content:"\002F" "\00A0"; // Path style
+            margin-left: .25em;
+        }
+    }
+}

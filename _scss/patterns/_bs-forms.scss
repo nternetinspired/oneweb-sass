@@ -1,0 +1,37 @@
+
+/* ==========================================================================
+    BOOTSTRAP 2.3.2 FORM STYLES
+   ========================================================================== */
+
+.controls {
+
+    input {
+        @extend .form-control;
+    }
+}
+
+.form-horizontal {
+
+    .control-group {
+        margin-bottom: spacer(4);
+
+        .controls {
+            margin: 0 0 0 1em;
+        }
+    }
+
+    .control-label {
+        display: inline-block;
+        text-align: right;
+        width: 10em;
+    }
+
+    .controls {
+        display: inline-block;
+        margin: 0 0 0 11em;
+
+        input {
+            margin: 0;
+        }
+    }
+}

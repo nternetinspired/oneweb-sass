@@ -1,0 +1,111 @@
+
+/* ==========================================================================
+    DROPDOWNS
+   ========================================================================== */
+
+// The dropdown wrapper (div)
+.dropdown {
+    position: relative;
+}
+
+// Prevent the focus on the dropdown toggle when closing dropdowns
+.dropdown-toggle:focus {
+    outline: 0;
+}
+
+// The dropdown menu (ul)
+.dropdown-menu {
+    background: $brand-background;
+    background-clip: padding-box;
+    border: 1px solid $border-color;
+    display: none; // none by default, but block on "open" of the menu
+    font-size: $root-size;
+    left: spacer(2);
+    margin: spacer(3) 0 0; // override default ul
+    min-width: 10em;
+    padding: spacer(1) 0;
+    position: absolute;
+    text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+    top: 100%;
+    z-index: 2;
+
+    @include box-shadow(0 1px 4px rgba(0,0,0,.05));
+
+    // Links within the dropdown menu
+    > li > a {
+        display: block;
+        padding: spacer(1) spacer(2);
+        color: $root-color;
+        white-space: nowrap; // prevent links from randomly breaking onto new lines
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            color: $link-color-hover;
+        }
+    }
+}
+
+
+// Open state for the dropdown
+.open {
+    // Show the menu
+    > .dropdown-menu {
+        display: block;
+    }
+
+    // Remove the outline when :focus is triggered
+    > a {
+        outline: 0;
+    }
+}
+
+// Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
+// menu with the parent.
+.dropdown-menu-right {
+    left: auto; // Reset the default from `.dropdown-menu`
+    right: spacer(2);
+}
+
+
+// Backdrop to catch body clicks on mobile, etc.
+.dropdown-backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 0;
+}
+
+
+// Dropdown arrow/caret
+/*
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top:   5px solid;
+    border-right: 5px solid transparent;
+    border-left:  5px solid transparent;
+}
+*/
+
+// Component alignment
+//
+// Reiterate per navbar.less and the modified component alignment there.
+
+@include mq(sm) {
+  .navbar-right {
+    .dropdown-menu {
+      right: 0; left: auto;
+    }
+    // Necessary for overrides of the default right aligned menu.
+    // Will remove come v4 in all likelihood.
+    .dropdown-menu-left {
+      left: 0; right: auto;
+    }
+  }
+}

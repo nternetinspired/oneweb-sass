@@ -4,9 +4,11 @@
    ========================================================================== */
 
 .header-row {
+    background: $root-background;
 }
 
 [role="banner"] {
-    @extend %row;
-	@extend %wrapper;
+
+    padding: spacer(4);
+
 }

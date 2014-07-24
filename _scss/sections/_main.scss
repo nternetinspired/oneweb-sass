@@ -4,10 +4,13 @@
    ========================================================================== */
 
 .main-row {
-	padding: spacer(8) 0;
+
+}
+
+.main {
+    padding: spacer(4);
 }
 
 [role="main"] {
-    @extend %row;
-    @extend %wrapper;
+
 }

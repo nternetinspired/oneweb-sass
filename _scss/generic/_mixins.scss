@@ -36,6 +36,21 @@
     }
 }
 
+// Font-face syntax, the easy way
+@mixin font-face($family,$src,$weight: normal,$style: normal) {
+	@font-face {
+		font-family: $family;
+		src: url('#{$src}.eot'); // IE9 compat
+		src: url('#{$src}.eot?#iefix') format('embedded-opentype'), // IE8 and below
+			url('#{$src}.woff') format('woff'), // standards
+			url('#{$src}.ttf') format('truetype'), // Safari, Android, iOS
+			url('#{$src}.svg##{$family}') format('svg'); // legacy iOS
+
+		font-style: $style;
+		font-weight: $weight;
+	}
+}
+
 // Vertically and horizontally center something of unknown size inside and parent of unknown size.
 @mixin centered {
     position: absolute;
@@ -44,6 +59,32 @@
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+// Useful for image replacement
+@mixin text-hide() {
+    font: #{0/0} a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+// Add proportional space around elements, increasing with viewport.
+@mixin space {
+    padding: spacer(6) spacer(4) spacer(2);
+
+    @include mq(sm) {
+        padding: spacer(8) spacer(4) spacer(4);
+    }
+
+    @include mq(md) {
+        padding: spacer(12) spacer(4) spacer(8);
+    }
+
+    @include mq(lg) {
+        padding: spacer(16) spacer(4) spacer(12);
+    }
 }
 
 /*

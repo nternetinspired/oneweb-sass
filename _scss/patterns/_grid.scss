@@ -1,88 +1,102 @@
 
 /* ==========================================================================
-    FLOATY GRID
+    INLINE GRID
    ========================================================================== */
 
-// A mixin so this can be applied semantically and within media-queries.
-@mixin row {
-    margin-left: spacer(-2);
-    margin-right: spacer(-2);
-    @include clearfix;
+.grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: spacer(-4);
 }
 
-.row {
-    @include row;
+.col {
+    display: inline-block;
+//    margin-right: -.25em // Not minimising your html? Uncomment this.
+    padding-left: spacer(4);
+    vertical-align: top;
+    width: 100%;
 }
 
-@mixin bsgrid-setup($namespace: "col-") {
+@mixin grid-setup($namespace: "") {
 
-    // DRY enough?
-    .#{$namespace}1,
-    .#{$namespace}2,
-    .#{$namespace}3,
-    .#{$namespace}4,
-    .#{$namespace}5,
-    .#{$namespace}6,
-    .#{$namespace}7,
-    .#{$namespace}8,
-    .#{$namespace}9,
-    .#{$namespace}10,
-    .#{$namespace}11,
-    .#{$namespace}12 {
-        float: left;
-        padding-left: spacer(2);
-        padding-right: spacer(2);
-    }
+    /* Whole */
+    .#{$namespace}one-whole         { width:100%; }
 
-    .#{$namespace}1     { width: 8.333%; }
-    .#{$namespace}2     { width: 16.666%; }
-    .#{$namespace}3     { width: 25%; }
-    .#{$namespace}4     { width: 33.333%; }
-    .#{$namespace}5     { width: 41.666% }
-    .#{$namespace}6     { width: 50%; }
-    .#{$namespace}7     { width: 58.333%; }
-    .#{$namespace}8     { width: 66.666%; }
-    .#{$namespace}9     { width: 75%; }
-    .#{$namespace}10    { width: 83.333%; }
-    .#{$namespace}11    { width: 91.666%; }
-    .#{$namespace}12    { width: 100%; }
+    /* Halves */
+    .#{$namespace}one-half          { width:50%; }
 
-      // Offset classes double the weight of our grid code, only uncomment if needed.
-//    .#{$namespace}offset-1     { margin-left: 8.333%; }
-//    .#{$namespace}offset-2     { margin-left: 16.666%; }
-//    .#{$namespace}offset-3     { margin-left: 25%; }
-//    .#{$namespace}offset-4     { margin-left: 33.333%; }
-//    .#{$namespace}offset-5     { margin-left: 41.666% }
-//    .#{$namespace}offset-6     { margin-left: 50%; }
-//    .#{$namespace}offset-7     { margin-left: 58.333%; }
-//    .#{$namespace}offset-8     { margin-left: 66.666%; }
-//    .#{$namespace}offset-9     { margin-left: 75%; }
-//    .#{$namespace}offset-10    { margin-left: 83.333%; }
-//    .#{$namespace}offset-11    { margin-left: 91.666%; }
-//    .#{$namespace}offset-12    { margin-left: 100%; }
+    /* Thirds */
+    .#{$namespace}one-third         { width:33.333%; }
+    .#{$namespace}two-thirds        { width:66.666%; }
 
+    /* Quarters */
+    .#{$namespace}one-quarter       { width:25%; }
+    .#{$namespace}two-quarters      { @extend .#{$namespace}one-half; }
+    .#{$namespace}three-quarters    { width:75%; }
+
+    /* Fifths */
+    .#{$namespace}one-fifth         { width:20%; }
+    .#{$namespace}two-fifths        { width:40%; }
+    .#{$namespace}three-fifths      { width:60%; }
+    .#{$namespace}four-fifths       { width:80%; }
+
+    /* Sixths */
+    .#{$namespace}one-sixth         { width:16.666%; }
+    .#{$namespace}two-sixths        { @extend .#{$namespace}one-third; }
+    .#{$namespace}three-sixths      { @extend .#{$namespace}one-half; }
+    .#{$namespace}four-sixths       { @extend .#{$namespace}two-thirds; }
+    .#{$namespace}five-sixths       { width:83.333%; }
+
+    /* Eighths */
+    .#{$namespace}one-eighth        { width:12.5%; }
+    .#{$namespace}two-eighths       { @extend .#{$namespace}one-quarter; }
+    .#{$namespace}three-eighths     { width:37.5%; }
+    .#{$namespace}four-eighths      { @extend .#{$namespace}one-half; }
+    .#{$namespace}five-eighths      { width:62.5%; }
+    .#{$namespace}six-eighths       { @extend .#{$namespace}three-quarters; }
+    .#{$namespace}seven-eighths     { width:87.5%; }
+
+    /* Tenths */
+    .#{$namespace}one-tenth         { width:10%; }
+    .#{$namespace}two-tenths        { @extend .#{$namespace}one-fifth; }
+    .#{$namespace}three-tenths      { width:30%; }
+    .#{$namespace}four-tenths       { @extend .#{$namespace}two-fifths; }
+    .#{$namespace}five-tenths       { @extend .#{$namespace}one-half; }
+    .#{$namespace}six-tenths        { @extend .#{$namespace}three-fifths; }
+    .#{$namespace}seven-tenths      { width:70%; }
+    .#{$namespace}eight-tenths      { @extend .#{$namespace}four-fifths; }
+    .#{$namespace}nine-tenths       { width:90%; }
+
+    /* Twelfths */
+    .#{$namespace}one-twelfth       { width:8.333%; }
+    .#{$namespace}two-twelfths      { @extend .#{$namespace}one-sixth; }
+    .#{$namespace}three-twelfths    { @extend .#{$namespace}one-quarter; }
+    .#{$namespace}four-twelfths     { @extend .#{$namespace}one-third; }
+    .#{$namespace}five-twelfths     { width:41.666% }
+    .#{$namespace}six-twelfths      { @extend .#{$namespace}one-half; }
+    .#{$namespace}seven-twelfths    { width:58.333%; }
+    .#{$namespace}eight-twelfths    { @extend .#{$namespace}two-thirds; }
+    .#{$namespace}nine-twelfths     { @extend .#{$namespace}three-quarters; }
+    .#{$namespace}ten-twelfths      { @extend .#{$namespace}five-sixths; }
+    .#{$namespace}eleven-twelfths   { width:91.666%; }
 }
 
-//@include bsgrid-setup();
 
-// This mixin generates namespaced width declarations at our breakpoints.
-
-//@include mq(xs) {
-    @include bsgrid-setup("col-xs-");
-//}
+@include grid-setup();
 
 @include mq(sm) {
-    @include bsgrid-setup("col-sm-");
+    @include grid-setup("sm-");
 }
 
 @include mq(md) {
-    @include bsgrid-setup("col-md-");
+    @include grid-setup("md-");
 }
 
 @include mq(lg) {
-    @include bsgrid-setup("col-lg-");
+    @include grid-setup("lg-");
 }
 
-//@include mq(xl) {
-//    @include bsgrid-setup("col-xl-");
-//}
+@include mq(xl) {
+    @include grid-setup("xl-");
+}

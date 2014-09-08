@@ -183,12 +183,6 @@
 
 @mixin mq($media-query) {
 
-    @if $media-query == xs {
-        @media only screen and (min-width: $xs) {
-            @content;
-        }
-    }
-
     @if $media-query == sm {
         @media only screen and (min-width: $sm) {
             @content;

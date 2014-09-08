@@ -9,31 +9,11 @@
 }
 
 /* MAIN NAVIGATION */
-[role="navigation"] {
-	@extend .nav;
+.nav-primary {
 
-    @include mq(md) {
-        display: inline-block;
-        margin: -.25em;
-        text-align: right;
-        vertical-align: middle;
-        width: 75%;
-    }
+    font-family: $heading-family;
 
-	a {
-		display: block;
-		padding: spacer(2) spacer(2);
-	}
-
-	li {
-        display: block;
-        @include mq(sm) {
-            display: inline-block;
-		}
-    }
-
-    ul { // Accounts for the padding applied to nav links above
-        margin-left: spacer(-2);
-        margin-right: spacer(-2);
+    @include mq(sm) {
+        font-size: 1.125em;
     }
 }

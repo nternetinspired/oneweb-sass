@@ -3,23 +3,10 @@
     ROOT
    ========================================================================== */
 
-/*
- * Border-box *all the things*, as suggested in:
- * http:// paulirish.com/2012/box-sizing-border-box-ftw
- */
-
-* {
-    &,
-    &:before,
-    &:after {
-        @include box-sizing;
-    }
-}
-
-
 /* Define the root element styles. */
 html {
     background: $root-background;
+    box-sizing: border-box;
     color: $root-color;
     overflow-y: scroll;
 
@@ -27,6 +14,16 @@ html {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     @include font-smoothing;
 }
+
+/*
+ * Border-box *all the things*, as suggested in:
+ * http:// paulirish.com/2012/box-sizing-border-box-ftw
+ */
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 
 @if $opentype == true {
 

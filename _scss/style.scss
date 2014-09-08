@@ -20,7 +20,6 @@
 @import "generic/normalise"; // Normalise browser behaviours.
 @import "generic/fluid-type"; // Responsive type scaling, globally.
 //@import "generic/syntax"; // Code highlighting.
-@import "generic/vertical-rhythm";
 
 
 /* ELEMENTS */
@@ -71,7 +70,6 @@
 @import "patterns/pagination";
 @import "patterns/pills";
 @import "patterns/responsive-tables";
-@import "patterns/rows";
 @import "patterns/wells";
 @import "patterns/widths";
 @import "patterns/wrapper";

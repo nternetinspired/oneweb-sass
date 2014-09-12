@@ -117,7 +117,7 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: bold;
+  font-weight: $strong-weight;
 }
 
 /**
@@ -132,11 +132,12 @@ dfn {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
  */
-
+/*
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
+*/
 
 /**
  * Address styling not present in IE 8/9.
@@ -152,7 +153,7 @@ mark {
  */
 
 small {
-    @include set-type($scale-down1);
+    @include set-type(4, $scale-down1);
 }
 
 /**
@@ -161,10 +162,10 @@ small {
 
 sub,
 sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    @include set-type(4, $scale-down1);
 }
 
 sup {
@@ -210,9 +211,7 @@ svg:not(:root) {
  */
 
 hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
-  height: 0;
 }
 
 /**
@@ -421,8 +420,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+/*
 td,
 th {
   padding: 0;
 }
+*/

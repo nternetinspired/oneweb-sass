@@ -104,6 +104,8 @@ $heading-color:         $root-color !default;
 //  TYPOGRAPHY
 // ==========================================================================
 
+$strong-weight:         700 !default; // The font-weight used for <b> and <strong> elements.
+
 // Paragraph settings
 $paragraph-indent:      false !default; // Get classy?
 $paragraph-justify:     false !default;

@@ -208,42 +208,35 @@
     }
 }
 
-// Returns a number without a unit. For example 16px becomes 16
+// Returns a number without a unit.
 @function strip-units($number) {
   @return $number / ($number * 0 + 1);
 }
 
 // Converts the $root-size value to EMs for use in the functions below.
 $root-size-em: ($root-size / 16px) * 1em;
-//$root-size-em: 1em;
 
 // The value that multiplies the $base-vertical-unit to get the $base-line-height.
-// This gives type an ideal line-height.
 $base-line-multi: 4 !default;
 
-// The vertical grid unit. Margin, padding, and line-height are set to multiples
-// of this value. This is the value that determines the baseline for our vertical
-// rhythm.
+// The vertical grid unit.
 $base-vertical-unit: strip-units(($root-lineheight * $root-size-em) / $base-line-multi);
 
 //==============================================================================
 // Helper function(s)
 //==============================================================================
 
-// Returns an EM value that is a multiple of our defined base vertical unit. For
-// example 3 becomes 1.125em
+// Returns a context-dependant em value for vertically spacing elements
 @function spacer($lines: $base-line-multi, $font-size: $root-size-em) {
-  @return ($lines * $base-vertical-unit) / (strip-units($font-size)) +0em;
+    @return ($lines * $base-vertical-unit) / (strip-units($font-size)) +0em;
 }
 
-// Returns a unitless number that is a multiple of our defined base vertical unit.
-// For example 3 becomes 1.125
+// Same value as above but without units, for use in the line-height calculations.
 @function unitlessRhythm($lines: $base-line-multi, $font-size: $root-size-em) {
-  @return ($lines * $base-vertical-unit) / (strip-units($font-size));
+    @return ($lines * $base-vertical-unit) / (strip-units($font-size));
 }
 
-// Sets the type in EMs and makes a vertical rhythm unitless line-height that is
-// based on context.
+// Sets the type size in EMs and set a vertical rhythm that is context aware.
 @mixin set-type($lines: $base-line-multi, $font-size: $root-size-em) {
     font-size: $font-size;
     line-height: unitlessRhythm($lines, $font-size);

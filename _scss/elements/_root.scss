@@ -45,7 +45,24 @@ body {
 
     // If set in project vars show the typographic baseline visually
     @if $show-baseline == true {
-        background-image: url(http://basehold.it/i/#{strip-units(round($root-baseline * $root-size))});
+        position: relative;
+
+        &:before {
+            content: "";
+            display: block;
+            background-image: -webkit-linear-gradient(rgba(0, 0, 233, .15) 1px, rgba(0, 0, 0, 0) 1px);
+            background-image: linear-gradient(rgba(0, 0, 233, .15) 1px, rgba(0, 0, 0, 0) 1px);
+            background-size: 100% ($root-lineheight + 0em);
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
     }
 }
 

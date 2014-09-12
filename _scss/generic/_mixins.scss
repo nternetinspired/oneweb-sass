@@ -208,30 +208,43 @@
     }
 }
 
-// A small, internally-used function to remove the units from a given value. http://bit.ly/1mKlVrP
+// Returns a number without a unit. For example 16px becomes 16
 @function strip-units($number) {
-    @return $number / ($number * 0 + 1);
+  @return $number / ($number * 0 + 1);
 }
-
-// Slices the root lineheight value into smaller chunks.
-$baseline-fraction: strip-units(($root-baseline * $root-size) / 4);
 
 // Converts the $root-size value to EMs for use in the functions below.
 $root-size-em: ($root-size / 16px) * 1em;
+//$root-size-em: 1em;
 
-// Returns an EM value that is context dependent. Derived from: http://ianrose.me/typesettings/
-@function spacer($multiplier: $baseline-fraction, $font-size: $root-size-em) {
-    @return ($multiplier * $baseline-fraction) / (strip-units($font-size) * strip-units($root-size)) * 1em;
+// The value that multiplies the $base-vertical-unit to get the $base-line-height.
+// This gives type an ideal line-height.
+$base-line-multi: 4 !default;
+
+// The vertical grid unit. Margin, padding, and line-height are set to multiples
+// of this value. This is the value that determines the baseline for our vertical
+// rhythm.
+$base-vertical-unit: strip-units(($root-lineheight * $root-size-em) / $base-line-multi);
+
+//==============================================================================
+// Helper function(s)
+//==============================================================================
+
+// Returns an EM value that is a multiple of our defined base vertical unit. For
+// example 3 becomes 1.125em
+@function spacer($lines: $base-line-multi, $font-size: $root-size-em) {
+  @return ($lines * $base-vertical-unit) / (strip-units($font-size)) +0em;
 }
 
-// Sets the type size in EMs.
-@mixin font-size($font-size: $root-size-em) {
-    font-size: $font-size;
+// Returns a unitless number that is a multiple of our defined base vertical unit.
+// For example 3 becomes 1.125
+@function unitlessRhythm($lines: $base-line-multi, $font-size: $root-size-em) {
+  @return ($lines * $base-vertical-unit) / (strip-units($font-size));
 }
 
-// Sets the type in EMs with line-height and margin based on context.
-@mixin header-size($font-size: $root-size-em) {
+// Sets the type in EMs and makes a vertical rhythm unitless line-height that is
+// based on context.
+@mixin set-type($lines: $base-line-multi, $font-size: $root-size-em) {
     font-size: $font-size;
-    line-height: ceil($font-size / $root-baseline) * ($root-baseline / $font-size);
-    margin-bottom: spacer(4, $font-size);
+    line-height: unitlessRhythm($lines, $font-size);
 }

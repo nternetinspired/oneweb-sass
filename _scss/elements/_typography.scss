@@ -35,7 +35,7 @@ p {
 
 /* Typically used in the first paragraph of an article, for added awesome. */
 .intro {
-    @include font-size($scale-up1);
+    @include set-type($scale-up1);
     margin-bottom: spacer(4, $scale-up1);
     line-height: $root-baseline;
 
@@ -72,7 +72,7 @@ blockquote {
 cite {
     display: block;
     margin-top: spacer(2, $scale-down1);
-    @include font-size($scale-down1);
+    @include set-type($scale-down1);
 
     &:before {
         content: "\2014";

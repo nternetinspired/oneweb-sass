@@ -167,7 +167,7 @@
 /* BUTTON SIZING */
 .btn-small {
     padding: spacer(1, $scale-down1) spacer(2, $scale-down1);
-    @include font-size($scale-down1);
+    @include set-type($scale-down1);
 }
 
 .btn-large {
@@ -176,7 +176,7 @@
 
 .btn-huge {
     padding: spacer(3, $scale-up1) spacer(6, $scale-up1);
-    @include font-size($scale-up1);
+    @include set-type($scale-up1);
 }
 
 .btn-natural {

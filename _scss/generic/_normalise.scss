@@ -152,7 +152,7 @@ mark {
  */
 
 small {
-    @include font-size($scale-down1);
+    @include set-type($scale-down1);
 }
 
 /**

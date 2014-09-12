@@ -17,7 +17,8 @@ $body-background:       rgb(255,255,255) !default;
 $root-size:             16px !default; // Set in px, it will be converted to ems.
 
 // Set leading.
-$root-baseline:         $scale !default; // Unitless value, doesn't have to be the same as $scale.
+$root-lineheight:       1.6 !default; // Unitless value, doesn't have to be the same as $scale.
+$show-baseline:         true !default; // A visual guide to help correct baseline.
 
 // Default font-weight.
 $root-weight:           400 !default;
@@ -102,8 +103,6 @@ $heading-color:         $root-color !default;
 // ==========================================================================
 //  TYPOGRAPHY
 // ==========================================================================
-
-$show-baseline:         false !default; // A visual guide to help correct baseline.
 
 // Paragraph settings
 $paragraph-indent:      false !default; // Get classy?

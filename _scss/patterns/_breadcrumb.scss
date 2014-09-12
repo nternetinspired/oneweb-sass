@@ -6,7 +6,7 @@
 .breadcrumb {
 
     margin: spacer(2, $scale-down1);
-    @include font-size($scale-down1);
+    @include set-type($scale-down1);
 
     li {
         display: inline-block;

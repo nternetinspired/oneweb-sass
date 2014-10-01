@@ -12,7 +12,7 @@
 	h2, .beta {
 
 		@include mq(lg) {
-			@include header-size($scale-up5);
+			@include set-type($scale-up5);
 			margin-bottom: spacer(8, $scale-up5);
 		}
 	}

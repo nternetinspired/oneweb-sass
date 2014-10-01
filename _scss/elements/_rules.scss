@@ -8,6 +8,6 @@ hr {
 	border: 0;
     display: block;
     height: 1px;
-    line-height: ceil($root-size-em / $root-baseline) * ($root-baseline / $root-size-em);
+    line-height: ceil($root-size-em / $root-lineheight) * ($root-lineheight / $root-size-em);
     margin: spacer(4) 0;
 }

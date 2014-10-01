@@ -3,45 +3,41 @@
     BUTTONS
    ========================================================================== */
 
+/* ==========================================================================
+    BUTTONS
+   ========================================================================== */
+
 %btn { // Let's save ourselves from having to use two button classes per button. Bootstrap.
-    background-color: $brand-background;
-    border: 1px solid transparent;
-//    border-color: $border-color darken($border-color, 5%) darken($border-color, 10%);
+    background-color: transparent;
+    border: 2px solid lighten($root-color, 15%);
     border-radius: $button-radius;
-//    border-width: 1px 1px 2px 1px;
-    color: $root-color;
+    color: lighten($root-color, 15%);
     cursor: pointer;
     display: inline-block;
     font-family: $button-family;
-    font-weight: 600;
-//    line-height: 1;
-    margin: 0 spacer(1) spacer(2) 0;
-    padding: spacer(1.5) spacer(2);
-    vertical-align: middle;
+    font-weight: 700;
+//    font-size: .83em;
+    line-height: 1em;
+    margin: 0 spacer(4) 0 0;
+    padding: spacer(2) spacer(4);
     width: 100%;
-    white-space: nowrap;
+    text-align: center;
+    text-decoration: none;
     text-shadow: none;
-
-    @include box-shadow(0 1px 2px rgba(0,0,0,.4));
+//    text-transform: uppercase;
     @include font-smoothing;
-    @include transition;
+    @include transition(all .4s ease);
 
     @include mq(sm) {
         width: auto;
     }
 
-    &:hover {
-        background: darken($brand-background, 5%);
-    //    border-color: darken($border-color, 5%)  darken($border-color, 10%) darken($border-color, 15%);
-        color: darken($root-color, 10%);
-        text-decoration: none;
-    }
-
     &:active,
+    &:hover,
     &:focus {
-    //    border: 1px solid darken($border-color, 15%);
-        outline: none;
-        @include box-shadow(0 0 1px rgba(0,0,0,.2));
+        background: rgba(0,0,0,.05);
+        border-color: $root-color;
+        color: $root-color;
     }
 
     // Any button with an icon should get extra padding. Duh.
@@ -70,8 +66,6 @@
 .btn-danger,
 .btn-warning {
 
-    color: #fcfcfc;
-
     &:active,
     &:hover,
     &:focus {
@@ -81,104 +75,75 @@
 
 .btn-primary {
 
-    background: $brand-primary;
-//    border-color: darken($brand-primary, 10%) darken($brand-primary, 15%) darken($brand-primary, 20%);
-
-    &:hover,
-    &:focus {
-        background: lighten($brand-primary, 5%);
-//        border-color: $brand-primary darken($brand-primary, 5%) darken($brand-primary, 10%);
-    }
+    border-color: $brand-primary;
+    color: $brand-primary;
 
     &:active,
+    &:hover,
     &:focus {
-//        border: 1px solid darken($brand-primary, 20%);
+        background: $brand-primary;
+        border-color: darken($brand-primary, 5%);
     }
+
 }
 
 .btn-success {
 
-    background: $brand-success;
-//    border-color: darken($brand-success, 10%) darken($brand-success, 15%) darken($brand-success, 20%);
-
-    &:hover,
-    &:focus {
-        background: lighten($brand-success, 5%);
-//        border-color: $brand-success darken($brand-success, 5%) darken($brand-success, 10%);
-    }
+    border-color: $brand-success;
+    color: $brand-success;
 
     &:active,
+    &:hover,
     &:focus {
-//        border: 1px solid darken($brand-success, 20%);
+        background: $brand-success;
+        border-color: darken($brand-success, 5%);
     }
 }
 
 .btn-danger {
 
-    background: $brand-danger;
-//    border-color: darken($brand-danger, 10%) darken($brand-danger, 15%) darken($brand-danger, 20%);
-
-    &:hover,
-    &:focus {
-        background: lighten($brand-danger, 5%);
-//        border-color: $brand-danger darken($brand-danger, 5%) darken($brand-danger, 10%);
-    }
+    border-color: $brand-danger;
+    color: $brand-danger;
 
     &:active,
+    &:hover,
     &:focus {
-//        border: 1px solid darken($brand-danger, 20%);
+        background: $brand-danger;
+        border-color: darken($brand-danger, 5%);
     }
 }
 
 .btn-info {
 
-    background: $brand-info;
-//    border-color: darken($brand-info, 10%) darken($brand-info, 15%) darken($brand-info, 20%);
-
-    &:hover,
-    &:focus {
-        background: lighten($brand-info, 5%);
-//        border-color: $brand-info darken($brand-info, 5%) darken($brand-info, 10%);
-    }
-
-    &:active,
-    &:focus {
-//        border: 1px solid darken($brand-info, 20%);
-    }
 }
 
 .btn-warning {
 
-    background: $brand-warning;
-//    border-color: darken($brand-warning, 10%) darken($brand-warning, 15%) darken($brand-warning, 20%);
-
-    &:hover,
-    &:focus {
-        background: lighten($brand-warning, 5%);
-//        border-color: $brand-warning darken($brand-warning, 5%) darken($brand-warning, 10%);
-    }
-
-    &:active,
-    &:focus {
-//        border: 1px solid darken($brand-warning, 20%);
-    }
 }
 
 /* BUTTON SIZING */
+
 .btn-small {
-    padding: spacer(1, $scale-down1) spacer(2, $scale-down1);
-    @include set-type($scale-down1);
+//    padding: spacer(1, $scale-down1) spacer(2, $scale-down1);
+    @include set-type(4, $scale-down1);
 }
+
 
 .btn-large {
     padding: spacer(2) spacer(4);
 }
 
+
 .btn-huge {
+    margin-bottom: spacer(4, $scale-up1);
     padding: spacer(3, $scale-up1) spacer(6, $scale-up1);
-    @include set-type($scale-up1);
+    @include set-type(4, $scale-up1);
 }
 
 .btn-natural {
     width: 100%;
+}
+
+.btn-inline {
+    margin: 0;
 }

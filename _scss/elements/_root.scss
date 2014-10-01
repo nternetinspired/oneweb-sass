@@ -40,7 +40,7 @@ html {
 /* Style the body element styles. */
 body {
     background: $body-background;
-    font: #{$root-weight} #{percentage($root-size / 16px)}/#{$root-baseline} $root-family;
+    font: #{$root-weight} #{$root-size-em}/#{$root-lineheight} $root-family;
 
     // If set in project vars show the typographic baseline visually
     @if $show-baseline == true {
@@ -49,13 +49,12 @@ body {
         &:before {
             content: "";
             display: block;
-            background-image: -webkit-linear-gradient(rgba(0, 0, 233, .15) 1px, rgba(0, 0, 0, 0) 1px);
-            background-image: linear-gradient(rgba(0, 0, 233, .15) 1px, rgba(0, 0, 0, 0) 1px);
+            background-image: -webkit-linear-gradient(rgba(0, 0, 233, .1) 1px, rgba(0, 0, 0, 0) 1px);
+            background-image: linear-gradient(rgba(0, 0, 233, .1) 1px, rgba(0, 0, 0, 0) 1px);
             background-size: 100% ($root-lineheight + 0em);
             pointer-events: none;
             position: absolute;
             width: 100%;
-            z-index: 10;
 
             top: 0;
             right: 0;
@@ -64,7 +63,6 @@ body {
         }
     }
 }
-
 
 /* Colour selected text. */
  ::-moz-selection {

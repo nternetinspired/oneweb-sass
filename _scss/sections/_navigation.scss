@@ -3,16 +3,16 @@
     PRIMARY NAVIGATION
    ========================================================================== */
 
-.nav-row {
-
-}
-
 /* MAIN NAVIGATION */
 .nav-primary {
 
     font-family: $heading-family;
 
     @include mq(sm) {
-    
+
     }
+}
+
+.nav-row {
+
 }

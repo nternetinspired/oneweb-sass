@@ -1,6 +1,6 @@
 
 // A modular scale generates harmonious font sizes and baseline height: http://modularscale.com/
-$scale:                 1.414 !default;
+$scale:                 1.25 !default;
 
 // ==========================================================================
 //  ROOT RULES
@@ -8,24 +8,25 @@ $scale:                 1.414 !default;
 
 // Root element colours.
 $root-color:            rgb(42,42,42) !default;
-$root-background:       rgb(255,255,255) !default;
+$root-background:       rgb(242,242,242) !default;
 
 // Also set body to allow faux footers.
 $body-background:       rgb(255,255,255) !default;
 
 // Default font-size.
-$root-size:             16px !default; // Set in px, it will be converted to ems.
+$root-size:             15px !default; // Set in px, it will be converted to ems.
 
 // Set leading.
-$root-lineheight:       1.6 !default; // Unitless value, doesn't have to be the same as $scale.
+$root-lineheight:       2 !default; // Unitless value, doesn't have to be the same as $scale.
 $show-baseline:         false !default; // A visual guide to help correct baseline.
+$show-wireframe:        true !default;
 
 // Default font-weight.
 $root-weight:           400 !default;
 
 // Constrain content widths to maintain an optimal measure.
-$wrapper-width:         100em !default;
-$wrapper-width-narrow:  60em !default;
+$wrapper-width:         75em !default;
+$wrapper-width-narrow:  35em !default;
 
 
 // ==========================================================================
@@ -86,8 +87,8 @@ $button-radius:         .25em !default;
 
 // Link colours.
 $link-color:            $brand-color !default;
-$link-color-hover:      darken($brand-color, 10%) !default;
-$link-color-visited:    darken($brand-color, 10%) !default;
+$link-color-hover:      darken($link-color, 10%) !default;
+$link-color-visited:    darken($link-color, 10%) !default;
 
 
 // ==========================================================================

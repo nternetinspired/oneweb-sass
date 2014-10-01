@@ -1,0 +1,73 @@
+
+/* ==========================================================================
+    TOOL-TIPS
+   ========================================================================== */
+
+$tooltip-arrow-width: 5px;
+
+// Parent element:
+label.hasTooltip {
+    display: inline-block;
+    position: relative;
+
+    @include icon(question-circle, after) { // How awesome?
+        color: $border-color;
+        text-shadow: 0 -1px rgba(0,0,0,.25);
+    };
+}
+
+// Base class
+.tooltip {
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    visibility: visible;
+    font-size: .83em;
+
+    @include opacity(0);
+
+    &.in     { @include opacity(.9); }
+    &.top    { margin-top:  -3px; padding: $tooltip-arrow-width 0; }
+    &.right  { margin-left:  3px; padding: 0 $tooltip-arrow-width; }
+    &.bottom { margin-top:   3px; padding: $tooltip-arrow-width 0; }
+    &.left   { margin-left: -3px; padding: 0 $tooltip-arrow-width; }
+}
+
+// Wrapper for the tooltip content
+.tooltip-inner {
+    background: #000;
+    border-radius: $brand-radius;
+    color: #fff;
+    max-width: 15em;
+    padding: spacer(1) spacer(2);
+    text-align: center;
+    text-decoration: none;
+}
+
+// Arrows
+.tooltip-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.tooltip {
+
+    &.top .tooltip-arrow {
+        bottom: 0;
+        left: 50%;
+        margin-left: -$tooltip-arrow-width;
+        border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+        border-top-color: #000;
+    }
+
+    &.bottom .tooltip-arrow {
+        top: 0;
+        left: 50%;
+        margin-left: -$tooltip-arrow-width;
+        border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+        border-bottom-color: #000;
+    }
+}

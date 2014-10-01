@@ -1,8 +1,8 @@
 /* ==========================================================================
    Name:       oneweb-sass
-   Version:    5.0
-   Created:    April 2014
-   Author: 	Seth Warburton - http://internet-inspired.com - @nternetinspired
+   Version:    2.0
+   Created:    October 2014
+   Author: 	   Seth Warburton - http://internet-inspired.com - @nternetinspired
    Copyright:  Seth Warburton - (C) 2014
    License:    MIT
    ========================================================================== */
@@ -18,7 +18,7 @@
 @import "generic/helpers";
 @import "generic/modular-scale";
 @import "generic/normalise"; // Normalise browser behaviours.
-@import "generic/fluid-type"; // Responsive type scaling, globally.
+//@import "generic/fluid-type"; // Responsive type scaling, globally.
 //@import "generic/syntax"; // Code highlighting.
 
 
@@ -47,7 +47,7 @@
 /* VENDOR */
 /* ========================================================================== */
 // Any CSS targetting third-party code.
-// @import "vendor/font-awesome";
+@import "vendor/font-awesome";
 
 
 /* PATTERNS */
@@ -59,6 +59,7 @@
 
 @import "patterns/alerts";
 @import "patterns/buttons";
+@import "patterns/container";
 //@import "patterns/close"; // Specific to certain frameworks.
 @import "patterns/gists";
 @import "patterns/grid";
@@ -69,7 +70,11 @@
 @import "patterns/overlays";
 @import "patterns/pagination";
 @import "patterns/pills";
+@import "patterns/readmore";
 @import "patterns/responsive-tables";
+@import "patterns/section";
+@import "patterns/tabs";
+@import "patterns/tooltips";
 @import "patterns/wells";
 @import "patterns/widths";
 @import "patterns/wrapper";
@@ -78,7 +83,13 @@
 /* SECTIONS */
 /* ========================================================================== */
 // Document-level structural elements and specific page regions.
+@import "sections/above";
+@import "sections/banner";
+@import "sections/below";
+@import "sections/bottom";
+@import "sections/breadcrumbs";
 @import "sections/footer";
 @import "sections/header";
+@import "sections/logo";
 @import "sections/main";
 @import "sections/navigation";

@@ -16,7 +16,7 @@ img[height] {
     max-width: none;
 }
 
-%img-rounded {
+.img-rounded {
 	border-radius: 50%;
 }
 
@@ -25,12 +25,12 @@ img[height] {
  * floated images typically need a margin so we extend the
  * generic float classes here.
  */
-%img-right {
-    @extend %float-right;
+.img-right {
+    @extend .float-right;
     margin-left: spacer(4);
 }
 
-%img-left {
-    @extend %float-left;
+.img-left {
+    @extend .float-left;
     margin-right: spacer(4);
 }

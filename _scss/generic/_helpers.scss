@@ -48,23 +48,20 @@
 }
 
 /* Mute an object by reducing its opacity. */
-%muted {
+.muted {
     filter: alpha(opacity = 70)!important;
     opacity: 0.7!important;
 }
 
-/* Reverse the default text color */
-%reverse-text {
-    color: adjust_hue($root-color, 180);
-}
-
 /* Add/remove floats */
-%float-right {
+.float-right {
     float: right;
 }
-%float-left {
+
+.float-left {
     float: left;
 }
-%float-none {
+
+.float-none {
     float: none !important;
 }

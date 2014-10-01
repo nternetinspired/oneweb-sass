@@ -8,7 +8,7 @@ figure {
 	margin: 0 0 spacer(3);
 
 	figcaption {
-		@extend %muted;
+		@extend .muted;
 	}
 
 	img {

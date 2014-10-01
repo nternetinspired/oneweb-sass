@@ -12,7 +12,8 @@
 
 .col {
     display: inline-block;
-//    margin-right: -.25em // Not minimising your html? Uncomment this.
+    // Not minimising your html? Uncomment the following rule.
+    margin-right: -.25em;
     padding-left: spacer(4);
     vertical-align: top;
     width: 100%;

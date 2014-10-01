@@ -3,10 +3,8 @@
     CONTENT WRAPPER
    ========================================================================== */
 
-// Just keeps content from smashing into the browser edge
 .wrapper {
     margin-left: auto;
     margin-right: auto;
-    padding-left: spacer(4);
-    padding-right: spacer(4);
+    max-width: $wrapper-width;
 }

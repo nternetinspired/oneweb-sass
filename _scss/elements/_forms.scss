@@ -76,8 +76,7 @@ textarea {
 // input[type="tel"]
 // input[type="color"]
 
-.form-control,
-textarea {
+.form-control {
 
     background: $input-background;
     border: 1px solid $border-color;
@@ -118,7 +117,6 @@ textarea {
 
 /* De-bork serach feilds */
 input[type="search"] {
-    @include box-sizing;
     -webkit-appearance: none;
 }
 

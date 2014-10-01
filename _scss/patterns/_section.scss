@@ -11,9 +11,5 @@
 
 	@if $show-wireframe == true {
 		border-bottom: 1px solid $border-color;
-
-		&:last-child {
-			border-bottom: 0;
-		}
 	}
 }

@@ -9,8 +9,8 @@
     font-family: $heading-family;
     vertical-align: middle;
 
-    @include mq(sm) {
-
+    @include mq(md) {
+        text-align: right;
     }
 }
 

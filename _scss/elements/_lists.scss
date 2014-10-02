@@ -11,19 +11,16 @@
 ul,
 ol,
 dl {
-
-    padding: 0 0 0 spacer(4);
-    @include mq(md) {
-    	padding: 0;
-    }
+    margin: 0 0 spacer(4) 0;
+    padding: 0;
 }
 
 /* A little style maestro! */
 ul {
-	list-style-type: circle;
+//	list-style-type: circle;
+    list-style-position: outside;
 }
 
-/* A little style maestro! */
 ol {
     list-style-type: lower-roman;
 }

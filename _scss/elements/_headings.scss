@@ -30,58 +30,48 @@ h6, .zeta {
  */
 h1,
 .alpha {
-    margin-bottom: spacer(4, $scale-up3);
 //    text-transform: uppercase;
-    @include set-type(4, $scale-up3);
+    @include font-size($scale-up3, 1.5);
 
     @include mq(lg) {
-        margin-bottom: spacer(4, $scale-up4);
-        @include set-type(4, $scale-up4);
+        @include font-size($scale-up4);
     }
 
 }
 
 h2,
 .beta {
-    margin-bottom: spacer(4, $scale-up2);
-    @include set-type(4, $scale-up2);
+    @include font-size($scale-up2, 1.5);
 
     @include mq(lg) {
-        margin-bottom: spacer(4, $scale-up3);
-        @include set-type(4, $scale-up3);
+        @include font-size($scale-up3);
     }
 }
 
 h3,
 .gamma {
-    margin-bottom: spacer(4, $scale-up1);
-    @include set-type(4, $scale-up1);
+    @include font-size($scale-up1, 1.5);
 
     @include mq(lg) {
-        margin-bottom: spacer(4, $scale-up2);
-        @include set-type(4, $scale-up2);
+        @include font-size($scale-up2);
     }
 }
 
 h4,
 .delta {
-    font-size: 1em;
-    margin-bottom: spacer(4);
+    @include font-size($root-size-em, none);
 
     @include mq(lg) {
-        margin-bottom: spacer(4, $scale-up1);
-        @include set-type(4, $scale-up1);
+        @include font-size($scale-up1);
     }
 }
 
 h5, .epsilon,
 h6, .zeta {
 
-    margin-bottom: spacer(4, $scale-down1);
-    @include set-type(4, $scale-down1);
+    @include font-size($scale-down1);
 
     @include mq(lg) {
-        font-size: 1em;
-        margin-bottom: spacer(4);
+        @include font-size($root-size-em);
     }
 }

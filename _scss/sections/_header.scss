@@ -5,6 +5,25 @@
 
 [role="banner"] {
 
+    padding: spacer(4) spacer(4);
+    text-align: center;
+
+    @include mq(sm) {
+        padding: spacer(6) spacer(6);
+    }
+
+    @include mq(md) {
+    //    padding: spacer(8) spacer(8);
+        text-align: left;
+    }
+
+    @include mq(lg) {
+    //    padding: spacer(10) spacer(10);
+    }
+
+    @if $show-wireframe == true {
+        border-bottom: 2px dashed $border-color;
+    }
 }
 
 .header-row {

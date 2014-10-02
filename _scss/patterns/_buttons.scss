@@ -16,7 +16,6 @@
     display: inline-block;
     font-family: $button-family;
     font-weight: 700;
-//    font-size: .83em;
     line-height: 1em;
     margin: 0 spacer(4) 0 0;
     padding: spacer(2) spacer(4);
@@ -125,7 +124,7 @@
 
 .btn-small {
 //    padding: spacer(1, $scale-down1) spacer(2, $scale-down1);
-    @include set-type(4, $scale-down1);
+    @include font-size($scale-down1);
 }
 
 
@@ -137,7 +136,7 @@
 .btn-huge {
     margin-bottom: spacer(4, $scale-up1);
     padding: spacer(3, $scale-up1) spacer(6, $scale-up1);
-    @include set-type(4, $scale-up1);
+    @include font-size($scale-up1);
 }
 
 .btn-natural {

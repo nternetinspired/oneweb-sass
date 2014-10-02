@@ -64,50 +64,19 @@
 
 // Add proportional space around elements, increasing with viewport.
 @mixin space {
-    padding: spacer(6) spacer(4) spacer(2);
+    padding: spacer(4) spacer(4) 0;
 
     @include mq(sm) {
-        padding: spacer(8) spacer(4) spacer(4);
+        padding: spacer(6) spacer(6) spacer(2);
     }
 
     @include mq(md) {
-        padding: spacer(12) spacer(4) spacer(8);
+    //    padding: spacer(8) spacer(8) spacer(4);
     }
 
     @include mq(lg) {
-        padding: spacer(16) spacer(4) spacer(12);
+    //    padding: spacer(10) spacer(10) spacer(6);
     }
-}
-
-/*
-* @include triangle within a pseudo element and add positioning properties (ie. top, left)
-* $direction: up, down, left, right
-*/
-@mixin triangle($direction, $size: 6px, $color: $root-color){
-  content: '';
-  display: block;
-  position: absolute;
-  height: 0; width: 0;
-  @if ($direction == 'up'){
-    border-bottom: $size solid $color;
-    border-left: 1/2*$size solid transparent;
-    border-right: 1/2*$size solid transparent;
-  }
-  @else if ($direction == 'down'){
-    border-top: $size solid $color;
-    border-left: 1/2*$size solid transparent;
-    border-right: 1/2*$size solid transparent;
-  }
-  @else if ($direction == 'left'){
-    border-top: 1/2*$size solid transparent;
-    border-bottom: 1/2*$size solid transparent;
-    border-right: $size solid $color;
-  }
-  @else if ($direction == 'right'){
-    border-top: 1/2*$size solid transparent;
-    border-bottom: 1/2*$size solid transparent;
-    border-left: $size solid $color;
-  }
 }
 
 // Hyphenate text.
@@ -200,6 +169,10 @@
     }
 }
 
+// ==========================================================================
+//  HELPER FUNCTIONS
+// ==========================================================================
+
 // Returns a number without a unit.
 @function strip-units($number) {
   @return $number / ($number * 0 + 1);
@@ -214,22 +187,68 @@ $base-line-multi: 4 !default;
 // The vertical grid unit.
 $base-vertical-unit: strip-units(($root-lineheight * $root-size-em) / $base-line-multi);
 
-//==============================================================================
-// Helper function(s)
-//==============================================================================
-
 // Returns a context-dependant em value for vertically spacing elements
 @function spacer($lines: $base-line-multi, $font-size: $root-size-em) {
     @return ($lines * $base-vertical-unit) / (strip-units($font-size)) +0em;
 }
 
-// Same value as above but without units, for use in the line-height calculations.
-@function unitlessRhythm($lines: $base-line-multi, $font-size: $root-size-em) {
-    @return ($lines * $base-vertical-unit) / (strip-units($font-size));
+// ==========================================================================
+//  TYPE SETTING VODOO
+// ==========================================================================
+
+@mixin font-size($font-size, $line-height: auto) {
+
+    font-size: ($font-size / $root-size-em) +0em;
+
+    // Automagically determine an appropriate line-height
+    $line-height-calc: ceil($root-size-em / $root-lineheight) * ($root-lineheight / $font-size);
+    $baseline-distance: (($line-height-calc - $cap-height) / 2);
+
+    // If non-ine says otherwise, we'll use our generated line-height
+    @if $line-height == auto {
+        line-height: $line-height-calc;
+    }
+
+    @else {
+
+        @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+            line-height: $line-height;
+        }
+    }
+
+    margin-bottom: $line-height-calc - $baseline-distance + 0em;
+    padding-top: $baseline-distance +0em;
 }
 
-// Sets the type size in EMs and set a vertical rhythm that is context aware.
-@mixin set-type($lines: $base-line-multi, $font-size: $root-size-em) {
-    font-size: $font-size;
-    line-height: unitlessRhythm($lines, $font-size);
+/*
+@mixin font-size($font-size: $root-size-em, $line-height: auto) {
+
+    // rhythm unit
+    $rhythm: $root-lineheight * $font-size / 2;
+
+    // number of rhythm units that can fit the font-size
+    $lines: ceil(($font-size + 0.001em) / $rhythm);
+
+    // Caluculate an awesome line-height
+    $line-height-auto: $rhythm * $lines / $font-size;
+
+    $baseline-distance: (($line-height - $cap-height) / 2);
+
+    // use the results
+    font-size: ($font-size / $root-size-em) +0em;
+    padding-top: $baseline-distance + 0em;
+    margin-bottom: $root-lineheight - $baseline-distance + 0em;
+
+    @if $line-height == auto {
+        line-height: $line-height-auto;
+    }
+
+    @else {
+
+        @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+            line-height: $line-height;
+        }
+    }
+
 }
+*/

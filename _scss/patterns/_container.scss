@@ -8,10 +8,9 @@
 
 	@extend .wrapper;
 	border-radius: $brand-radius;
-	@include box-shadow(0 0 1px 1px rgba(0,0,0,.1));
+	@include box-shadow(0 0 0 1px rgba(0,0,0,.1));
 
 	@include mq(lg) {
 		margin: 2em auto;
 	}
-
 }

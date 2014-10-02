@@ -5,7 +5,7 @@
 
 /* PARAGRAPHS */
 p {
-    margin: 0 0 spacer(4);
+    @include font-size($root-size-em, none);
     orphans: 3;
     widows: 3;
     word-wrap: break-word;
@@ -35,8 +35,7 @@ p {
 
 /* Typically used in the first paragraph of an article, for added awesome. */
 .intro {
-    margin-bottom: spacer(2, $scale-up1);
-    @include set-type(5, $scale-up1);
+    @include font-size($scale-up1);
     @if $paragraph-indent {
         margin-bottom: spacer(5, $scale-up1);
     }
@@ -70,7 +69,7 @@ blockquote {
 cite {
     display: block;
     margin-top: spacer(2, $scale-down1);
-    @include set-type($scale-down1);
+    @include font-size($scale-down1);
 
     &:before {
         content: "\2014";

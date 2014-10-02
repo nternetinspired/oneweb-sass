@@ -10,6 +10,6 @@
 	@include space;
 
 	@if $show-wireframe == true {
-		border-bottom: 1px solid $border-color;
+		border-bottom: 2px dashed $border-color;
 	}
 }

@@ -3,7 +3,7 @@
     NORMALISE
    ========================================================================== */
 
-/* A modified version of normalize.css v3.0.0 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
 /**
  * 1. Set default font family to sans-serif.
@@ -12,7 +12,7 @@
  */
 
 html {
-//  font-family: sans-serif; /* 1 */
+  font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -29,7 +29,9 @@ body {
    ========================================================================== */
 
 /**
- * Correct `block` display not defined in IE 8/9.
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
  */
 
 article,
@@ -71,8 +73,8 @@ audio:not([controls]) {
 }
 
 /**
- * Address `[hidden]` styling not present in IE 8/9.
- * Hide the `template` element in IE, Safari, and Firefox < 22.
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
 
 [hidden],
@@ -104,7 +106,7 @@ a:hover {
    ========================================================================== */
 
 /**
- * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
 
 abbr[title] {
@@ -112,16 +114,16 @@ abbr[title] {
 }
 
 /**
- * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
 
 b,
 strong {
-  font-weight: $strong-weight;
+  font-weight: bold;
 }
 
 /**
- * Address styling not present in Safari 5 and Chrome.
+ * Address styling not present in Safari and Chrome.
  */
 
 dfn {
@@ -130,14 +132,13 @@ dfn {
 
 /**
  * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari 5, and Chrome.
+ * contexts in Firefox 4+, Safari, and Chrome.
  */
-/*
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-*/
 
 /**
  * Address styling not present in IE 8/9.
@@ -153,7 +154,7 @@ mark {
  */
 
 small {
-    @include set-type(4, $scale-down1);
+  font-size: 80%;
 }
 
 /**
@@ -162,10 +163,10 @@ small {
 
 sub,
 sup {
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-    @include set-type(4, $scale-down1);
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sup {
@@ -180,7 +181,7 @@ sub {
    ========================================================================== */
 
 /**
- * Remove border when inside `a` element in IE 8/9.
+ * Remove border when inside `a` element in IE 8/9/10.
  */
 
 img {
@@ -188,7 +189,7 @@ img {
 }
 
 /**
- * Correct overflow displayed oddly in IE 9.
+ * Correct overflow not hidden in IE 9/10/11.
  */
 
 svg:not(:root) {
@@ -199,19 +200,21 @@ svg:not(:root) {
    ========================================================================== */
 
 /**
- * Address margin not present in IE 8/9 and Safari 5.
+ * Address margin not present in IE 8/9 and Safari.
  */
 
-//figure {
-//  margin: 1em 40px;
-//}
+figure {
+  margin: 1em 40px;
+}
 
 /**
  * Address differences between Firefox and other browsers.
  */
 
 hr {
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
+  height: 0;
 }
 
 /**
@@ -224,7 +227,7 @@ pre {
 
 /**
  * Address odd `em`-unit font size rendering in all browsers.
- *
+ */
 
 code,
 kbd,
@@ -246,7 +249,7 @@ samp {
  * 1. Correct color not being inherited.
  *    Known issue: affects color of disabled elements.
  * 2. Correct font properties not being inherited.
- * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
 
 button,
@@ -260,7 +263,7 @@ textarea {
 }
 
 /**
- * Address `overflow` set to `hidden` in IE 8/9/10.
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
 
 button {
@@ -270,7 +273,7 @@ button {
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
  * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Firefox, IE 8+, and Opera
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
 
@@ -349,8 +352,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /**
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
  *    (include `-moz` to future-proof).
  */
 
@@ -376,14 +379,14 @@ input[type="search"]::-webkit-search-decoration {
  * Define consistent border, margin, and padding.
  */
 
-//fieldset {
-//  border: 1px solid #c0c0c0;
-//  margin: 0 2px;
-//  padding: 0.35em 0.625em 0.75em;
-//}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
 
 /**
- * 1. Correct `color` not being inherited in IE 8/9.
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
 
@@ -393,7 +396,7 @@ legend {
 }
 
 /**
- * Remove default vertical scrollbar in IE 8/9.
+ * Remove default vertical scrollbar in IE 8/9/10/11.
  */
 
 textarea {
@@ -420,9 +423,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/*
+
 td,
 th {
   padding: 0;
 }
-*/

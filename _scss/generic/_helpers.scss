@@ -34,7 +34,7 @@
 }
 
 /* Image replacement. */
-%ir {
+.ir {
     background-color: transparent;
     border: 0;
     overflow: hidden;
@@ -64,4 +64,8 @@
 
 .float-none {
     float: none !important;
+}
+
+.text-center {
+    text-align: center;
 }

@@ -51,11 +51,12 @@ body {
             display: block;
             background-image: -webkit-linear-gradient(rgba(0, 0, 233, .1) 1px, rgba(0, 0, 0, 0) 1px);
             background-image: linear-gradient(rgba(0, 0, 233, .1) 1px, rgba(0, 0, 0, 0) 1px);
-            background-size: 100% ($root-lineheight + 0em);
+            background-size: 100% ($root-lineheight * 1em);
             pointer-events: none;
             position: absolute;
             width: 100%;
 
+        //    top: -($root-lineheight - $cap-height) *.5em;
             top: 0;
             right: 0;
             bottom: 0;

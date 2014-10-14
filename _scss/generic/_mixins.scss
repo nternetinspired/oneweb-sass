@@ -62,23 +62,6 @@
     border: 0;
 }
 
-// Add proportional space around elements, increasing with viewport.
-@mixin space {
-    padding: spacer(4) spacer(4) 0;
-
-    @include mq(sm) {
-        padding: spacer(6) spacer(6) spacer(2);
-    }
-
-    @include mq(md) {
-    //    padding: spacer(8) spacer(8) spacer(4);
-    }
-
-    @include mq(lg) {
-    //    padding: spacer(10) spacer(10) spacer(6);
-    }
-}
-
 // Hyphenate text.
 @mixin hyphens() {
     -webkit-hyphens: auto;
@@ -181,74 +164,121 @@
 // Converts the $root-size value to EMs for use in the functions below.
 $root-size-em: ($root-size / 16px) * 1em;
 
-// The value that multiplies the $base-vertical-unit to get the $base-line-height.
-$base-line-multi: 4 !default;
+// Used to offset background grid for typeface size
+$baseline-distance: ($root-lineheight - $cap-height) / 2;
 
-// The vertical grid unit.
-$base-vertical-unit: strip-units(($root-lineheight * $root-size-em) / $base-line-multi);
+// Returns a context-dependant em value for vertically spacing elements, where a
+// value of 4 is equal to our vertical baseline height.
+@function spacer($lines: 4, $font-size: $root-size-em) {
+    @return
 
-// Returns a context-dependant em value for vertically spacing elements
-@function spacer($lines: $base-line-multi, $font-size: $root-size-em) {
-    @return ($lines * $base-vertical-unit) / (strip-units($font-size)) +0em;
+        ($lines * (strip-units($root-lineheight * $root-size-em)) / 4)
+
+        /
+
+        (strip-units($font-size))
+
+        +em;
 }
+
+
+// ==========================================================================
+//  SECTION SPACING
+// ==========================================================================
+
+// Add proportional space, increasing with viewport and maintaining vertical rhythm.
+@mixin space {
+    padding: spacer(4) spacer(4) 0;
+
+    @include mq(sm) {
+        padding: spacer(6) spacer(6) spacer(2);
+    }
+
+    @include mq(md) {
+    //    padding: spacer(8) spacer(8) spacer(4);
+    }
+
+    @include mq(lg) {
+    //    padding: spacer(10) spacer(10) spacer(6);
+    }
+}
+
 
 // ==========================================================================
 //  TYPE SETTING VODOO
 // ==========================================================================
 
-@mixin font-size($font-size, $line-height: auto) {
-
-    font-size: ($font-size / $root-size-em) +0em;
-
-    // Automagically determine an appropriate line-height
-    $line-height-calc: ceil($root-size-em / $root-lineheight) * ($root-lineheight / $font-size);
-    $baseline-distance: (($line-height-calc - $cap-height) / 2);
-
-    // If non-ine says otherwise, we'll use our generated line-height
-    @if $line-height == auto {
-        line-height: $line-height-calc;
-    }
-
-    @else {
-
-        @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
-            line-height: $line-height;
-        }
-    }
-
-    margin-bottom: $line-height-calc - $baseline-distance + 0em;
-    padding-top: $baseline-distance +0em;
-}
-
 /*
-@mixin font-size($font-size: $root-size-em, $line-height: auto) {
+ * Usage
+ *
+ * The simplest method is to just pass the font-size and then get an automagically
+ * calculated lineheight and bottom margin to keep the element on the baseline.
+ * e.g.
+ *
+ * .foo {@include font-size($scale-up1);}
+ *
+ * compiles to:
+ *
+ * .foo {
+ *    font-size: 1.333em;
+ *    line-height: 1.5003750938;
+ *    margin-bottom: 1.5003750938em
+ * }
+ *
+ * Alternatively, you can pass a value for the bottom margin to the spacer
+ * function;
+ *
+ * .foo {@include font-size($scale-up1, 2);}
+ *
+ * compiles to:
+ *
+ * .foo {
+ *    font-size: 1.333em;
+ *    line-height: 1.5003750938;
+ *    margin-bottom: 0.7501875469em;
+ * }
+ *
+ * or omit the margin completely;
+ * .foo {@include font-size($scale-up1, none);}
+ *
+ * compiles to:
+ *
+ * .foo {
+ *    font-size: 1.333em;
+ *    line-height: 1.5003750938;
+ * }
+ *
+ * Line-height can be specified explicitly, as an integer or valid line-height
+ * value, e.g.;
+ *
+ * .foo {@include font-size($scale-up1, none, normal);}
+ *
+ * compiles to:
+ *
+ * .foo {
+ *    font-size: 1.333em;
+ *    line-height: normal;
+ * }
+ *
+ *
+ */
 
-    // rhythm unit
-    $rhythm: $root-lineheight * $font-size / 2;
 
-    // number of rhythm units that can fit the font-size
-    $lines: ceil(($font-size + 0.001em) / $rhythm);
+@mixin font-size($font-size: $root-size-em, $spacer: 4, $lineheight: auto) {
+    font-size: $font-size;
 
-    // Caluculate an awesome line-height
-    $line-height-auto: $rhythm * $lines / $font-size;
-
-    $baseline-distance: (($line-height - $cap-height) / 2);
-
-    // use the results
-    font-size: ($font-size / $root-size-em) +0em;
-    padding-top: $baseline-distance + 0em;
-    margin-bottom: $root-lineheight - $baseline-distance + 0em;
-
-    @if $line-height == auto {
-        line-height: $line-height-auto;
+    // If you don't pass a lineheight param, auto-calculate it.
+    @if $lineheight == auto {
+        line-height: ceil($font-size / $root-lineheight) * ($root-lineheight / $font-size);
     }
 
-    @else {
-
-        @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
-            line-height: $line-height;
-        }
+    // If you pass an integer, or valid line-height setting we'll use that instead.
+    @if (type-of($lineheight) == number or $lineheight == inherit or $lineheight == normal) {
+        line-height: $lineheight;
     }
 
+    // Use the margin spacer value, if it's an integer.
+    @if (type-of($spacer) == number) {
+        margin-bottom: spacer($spacer, $font-size);
+    }
 }
-*/

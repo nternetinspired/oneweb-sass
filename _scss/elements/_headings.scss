@@ -12,7 +12,6 @@ h6, .zeta {
     color: $heading-color;
     font-family: $heading-family;
     font-weight: $heading-weight;
-    margin: 0;
     @include font-smoothing;
 
     @if $opentype == true {
@@ -24,14 +23,13 @@ h6, .zeta {
 }
 
 /*
- * Size increments are based on W3C recommendations, www.w3.org/TR/CSS21/sample.html
- * but are set according to our chosen modular scale. Increments for h4 and h5 are
- * zeroed out (1em) at smaller sizes to maintain legibility.
+ * Size increments are set according to our chosen modular scale.
+ * Increments for h4 and h5 are zeroed out (1em) at smaller sizes
+ * to maintain legibility.
  */
 h1,
 .alpha {
-//    text-transform: uppercase;
-    @include font-size($scale-up3, 1.5);
+    @include font-size($scale-up3);
 
     @include mq(lg) {
         @include font-size($scale-up4);
@@ -41,7 +39,7 @@ h1,
 
 h2,
 .beta {
-    @include font-size($scale-up2, 1.5);
+    @include font-size($scale-up2);
 
     @include mq(lg) {
         @include font-size($scale-up3);
@@ -50,7 +48,7 @@ h2,
 
 h3,
 .gamma {
-    @include font-size($scale-up1, 1.5);
+    @include font-size($scale-up1);
 
     @include mq(lg) {
         @include font-size($scale-up2);
@@ -59,7 +57,7 @@ h3,
 
 h4,
 .delta {
-    @include font-size($root-size-em, none);
+    @include font-size($root-size-em);
 
     @include mq(lg) {
         @include font-size($scale-up1);

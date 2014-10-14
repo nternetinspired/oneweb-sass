@@ -36,10 +36,10 @@ $body-background:       rgb(255,255,255) !default;
 $root-size:             16px !default; // Set in px, it will be converted to ems.
 
 // Set leading.
-$root-lineheight:       $octave !default; // Unitless value, doesn't have to be the same as $scale.
+$root-lineheight:       $perfect-fifth !default; // Unitless value, doesn't have to be the same as $scale.
 $show-baseline:         true !default; // A visual guide to help correct baseline.
 $show-wireframe:        true !default;
-$cap-height: 		    0.57; // A unitless value, relative to 1em, that varies by font.
+$cap-height: 		    0.62; // A unitless value, relative to 1em, that varies by font.
 
 // Here are some local fonts cap-height sizes to get you started:
 // Georgia: 0.66
@@ -64,6 +64,7 @@ $cap-height: 		    0.57; // A unitless value, relative to 1em, that varies by fo
 // Minion Pro: 0.66
 // Myriad Pro: 0.66
 // Adobe Caslon Pro: 0.36
+// Omnes Pro 0.78
 
 
 // Default font-weight.
@@ -79,8 +80,8 @@ $wrapper-width-narrow:  35em !default;
 // ==========================================================================
 
 // Our font stacks
-$sans-family:           'Open Sans',sans-serif !default;
-$serif-family:          Georgia, serif !default;
+$sans-family:           sans-serif !default;
+$serif-family:          serif !default;
 $code-font-family:      monospace !default;
 
 // Project element stacks

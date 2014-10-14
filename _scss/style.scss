@@ -1,6 +1,6 @@
 /* ==========================================================================
    Name:       oneweb-sass
-   Version:    2.0
+   Version:    2.1
    Created:    October 2014
    Author: 	   Seth Warburton - http://internet-inspired.com - @nternetinspired
    Copyright:  Seth Warburton - (C) 2014
@@ -17,7 +17,11 @@
 @import "generic/mixins";
 @import "generic/helpers";
 @import "generic/modular-scale";
-@import "generic/normalise"; // Normalise browser behaviours.
+
+/* Normalize OR reset? Your choice. */
+//@import "generic/normalise"; // Normalise browser behaviours.
+@import "generic/reset"; // Or reset all the things.
+
 //@import "generic/fluid-type"; // Responsive type scaling, globally.
 //@import "generic/syntax"; // Code highlighting.
 
@@ -28,7 +32,6 @@
 // Global styles applicable primarily to named html
 // elements, like <body>, <table>. <header>, <footer> and
 // <main> are too generic and included as sections, below.
-//
 @import "elements/root";
 @import "elements/articles";
 @import "elements/code";
@@ -55,12 +58,10 @@
 //
 // The following are re-usable 'objects' that bring recurring CSS patterns
 // into discrete and easily maintainable modules.
-//
-
 @import "patterns/alerts";
 @import "patterns/buttons";
 @import "patterns/container";
-//@import "patterns/close"; // Specific to certain frameworks.
+@import "patterns/close"; // Specific to certain frameworks.
 @import "patterns/gists";
 @import "patterns/grid";
 @import "patterns/hero";
@@ -77,7 +78,6 @@
 @import "patterns/tabs";
 @import "patterns/tooltips";
 @import "patterns/wells";
-@import "patterns/widths";
 @import "patterns/wrapper";
 
 

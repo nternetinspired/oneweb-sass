@@ -8,14 +8,15 @@
 
     list-style: none;
     padding: 0;
+    margin-bottom: spacer();
 
     a {
-        display: inline-block;
-        padding: spacer(1);
+        display: block;
     }
 
     li {
         display: inline-block;
+        margin-right: .75em;
     }
 
 }

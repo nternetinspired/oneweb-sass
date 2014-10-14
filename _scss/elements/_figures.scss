@@ -5,13 +5,13 @@
 
 figure {
 
-	margin: 0 0 spacer(3);
+	margin: 0 0 spacer(4);
 
 	figcaption {
 		@extend .muted;
 	}
 
 	img {
-		margin-bottom: spacer(1);
+	//	margin-bottom: spacer(1);
 	}
 }

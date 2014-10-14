@@ -11,8 +11,7 @@
 ul,
 ol,
 dl {
-    margin: 0 0 spacer(4) 0;
-    padding: 0;
+    margin-bottom: spacer();
 }
 
 /* A little style maestro! */
@@ -31,7 +30,7 @@ li {
 
     > ul,
     > ol {
-         margin-bottom: 0;
-         padding-left: spacer(4);
+        margin-bottom: 0;
+        padding-left: spacer();
      }
 }

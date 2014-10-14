@@ -5,7 +5,7 @@
 
 /* PARAGRAPHS */
 p {
-    @include font-size($root-size-em, none);
+    margin-bottom: spacer(4);
     orphans: 3;
     widows: 3;
     word-wrap: break-word;
@@ -21,8 +21,8 @@ p {
 
     @if $paragraph-indent {
         + p {
-            margin-top: spacer(-4);
-            text-indent: spacer(4);
+    //        margin-top: spacer(-4);
+    //        text-indent: spacer(4);
         }
     }
 
@@ -36,8 +36,9 @@ p {
 /* Typically used in the first paragraph of an article, for added awesome. */
 .intro {
     @include font-size($scale-up1);
+
     @if $paragraph-indent {
-        margin-bottom: spacer(5, $scale-up1);
+    //    margin-bottom: spacer($scale-up1); $TODO - fix this shit!
     }
 }
 
@@ -45,9 +46,9 @@ p {
 
 /* Default margin indent is zeroed out and padded to allow styling of element. */
 blockquote {
-    border-left: 2px solid $border-color;
-    padding: 0 0 0 spacer(4);
-    margin: 0 0 spacer(4) spacer(-4);
+    border-left: 2px solid $brand-color;
+    padding-left: spacer(4, $scale-up1);
+    @include font-size($scale-up1);
 
     &:before,
     &:after {
@@ -62,6 +63,10 @@ blockquote {
     > cite,
     + cite {
         margin-bottom: 0;
+    }
+
+    @include mq(md) {
+        margin-left: spacer(-4, $scale-up1);
     }
 }
 
@@ -103,6 +108,10 @@ abbr {
     -moz-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1;
     font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1;
     }
+}
+
+small {
+    @include font-size($scale-down1, none, none);
 }
 
 /* SUPER AND SUBSCRIPTS */

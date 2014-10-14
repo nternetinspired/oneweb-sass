@@ -15,15 +15,13 @@
     cursor: pointer;
     display: inline-block;
     font-family: $button-family;
-    font-weight: 700;
-    line-height: 1em;
-    margin: 0 spacer(4) 0 0;
+    font-weight: $strong-weight;
+    font-size: inherit;
+    margin: 0 spacer(1) spacer(4) 0;
     padding: spacer(2) spacer(4);
     width: 100%;
     text-align: center;
     text-decoration: none;
-    text-shadow: none;
-//    text-transform: uppercase;
     @include font-smoothing;
     @include transition(all .4s ease);
 

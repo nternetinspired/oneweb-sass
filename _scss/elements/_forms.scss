@@ -26,23 +26,15 @@ textarea {
 
 /* Remove default fieldset styles. */
 fieldset {
-    border: 0;
-    margin: 0;
+    margin-bottom: spacer();
     min-width: 0;
-    padding: 0;
 }
 
 /* Make checkboxes and radio buttons display inline. */
 label {
     display: block;
-    font-weight: 600;
-    margin-bottom: spacer(2);
+    font-weight: $strong-weight;
     max-width: 100%;
-
-    &.inline {
-        display: inline-block;
-        margin: 0 1em 1em 0;
-    }
 }
 
 legend {
@@ -52,67 +44,6 @@ legend {
 input,
 textarea {
     display: block;
-}
-
-// Common form controls
-//
-// Shared size and type resets for form controls. Apply `.form-control` to any
-// of the following form controls:
-//
-// select
-// textarea
-// input[type="text"]
-// input[type="password"]
-// input[type="datetime"]
-// input[type="datetime-local"]
-// input[type="date"]
-// input[type="month"]
-// input[type="time"]
-// input[type="week"]
-// input[type="number"]
-// input[type="email"]
-// input[type="url"]
-// input[type="search"]
-// input[type="tel"]
-// input[type="color"]
-
-.form-control {
-
-    background: $input-background;
-    border: 1px solid $border-color;
-    border-radius: $brand-radius;
-    color: $root-color;
-    margin-bottom: spacer(3);
-    max-width: 100%;
-    padding: spacer(1.5);
-    width: 100%;
-
-    // Turns on lining numerals
-    -webkit-font-feature-settings: "kern" 0, "liga" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 1, "zero" 1;
-    -moz-font-feature-settings: "kern" 0, "liga" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 1, "zero" 1;
-    font-feature-settings: "kern" 0, "liga" 1, "pnum" 0, "tnum" 0, "onum" 0, "lnum" 1, "zero" 1;
-
-    @include transition;
-
-    &:focus {
-        border: 1px solid lighten($brand-primary, 10%);
-        outline: none;
-        outline-width: 0;
-    }
-
-    // User feedback on filled form fields
-    &.error {
-        background: lighten($brand-danger, 35%);
-        border: 1px solid lighten($brand-danger, 20%);
-        color: $brand-danger;
-    }
-
-    &.valid {
-        background: lighten($brand-success, 35%);
-        border: 1px solid lighten($brand-success, 20%);
-        color: darken($brand-success, 20%);
-    }
-
 }
 
 /* De-bork serach feilds */
@@ -137,23 +68,23 @@ textarea {
 input[type="radio"],
 input[type="checkbox"] {
     display: inline-block;
-    margin: 0 spacer(2) spacer(3) 0;
+    margin: 0 spacer(2) spacer(4) 0;
 }
 
 // Make range inputs behave like textual form controls
 input[type="range"] {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 100%;
 }
 
 // Make multiple select elements height not fixed
-select[multiple],
-select[size] {
-  height: auto;
+select {
+    height: spacer(8);
 }
 
-select {
-    height: spacer(7);
+select[multiple],
+select[size] {
+     height: auto;
 }
 
 progress,

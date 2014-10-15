@@ -1,21 +1,13 @@
 
 /* ==========================================================================
-    MAIN
+    COMPLEMENTARY (SIDEBAR)
    ========================================================================== */
 
 
-[role="main"] {
+[role="complementary"] {
 
     @include mq(md) {
-        @extend .md-two-thirds;
+        @extend .md-one-third;
     }
-
-}
-
-.main {
-
-}
-
-.main-row {
 
 }

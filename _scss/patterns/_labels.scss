@@ -8,11 +8,12 @@
 .label-success,
 .label-danger,
 .label-info {
-    margin: 0 .25em .25em 0;
-    padding: .125em .25em;
+//    font-weight: $strong-weight;
+    padding: .25em .5em;
     text-align: center;
     background-color: $brand-background;
     border-radius: $brand-radius;
+    @include font-size($scale-down1, 4, 1);
 }
 
 /* LABEL COLOURS */

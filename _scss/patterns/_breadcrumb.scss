@@ -5,8 +5,7 @@
 
 .breadcrumb {
 
-    margin: spacer(2, $scale-down1);
-    @include set-type($scale-down1);
+    @include font-size($scale-down1);
 
     li {
         display: inline-block;
@@ -15,7 +14,11 @@
         &:after{
             content:"\00BB" "\00A0"; // Chevron style
         //    content:"\002F" "\00A0"; // Path style
-            margin-left: .25em;
+            margin-left: .5em;
+        }
+
+        &:last-child:after {
+            content:"";
         }
     }
 }

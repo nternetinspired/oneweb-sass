@@ -18,13 +18,18 @@
 
 /* Article pagination */
 .pagenav {
-    @extend .nav;
 
     li {
-        width: 50%;
+        display: inline-block;
+
+        a {
+            @extend %btn;
+            margin: 0;
+        }
     }
+
     .previous {
-        margin-right: -.25em;
+
     }
     .next {
         float: right;

@@ -47,6 +47,11 @@
     }
 }
 
+/* Vertically center a thing */
+.centered {
+    @include centered;
+}
+
 /* Mute an object by reducing its opacity. */
 .muted {
     filter: alpha(opacity = 70)!important;

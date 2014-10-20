@@ -3,18 +3,10 @@
    ========================================================================== */
 
 .alert {
-    background: $brand-alert;
-    border: 1px solid darken((desaturate($brand-alert, 50%)), 5%);
     border-radius: $brand-radius;
     padding: spacer(4);
     position: relative;
     margin-bottom: spacer(4);
-
-    &,
-    h4 {
-        color: $root-color;
-        font-weight: 600;
-    }
 
     p:last-child {
         margin: 0;
@@ -23,31 +15,27 @@
 
 .alert-danger,
 .alert-error {
-    background: lighten($brand-danger, 35%);
-    border: 1px solid darken((desaturate($brand-danger, 50%)), 5%);
-
-    &,
-    h4 {
-        color: $brand-danger;
-    }
+    background: #f2dede;
+    border: 1px solid darken(adjust-hue($brand-danger, -10), 5%);
+    color: #a94442;
 }
 
-.alert-info {
-    background: $brand-info;
-    border: 1px solid darken((desaturate($brand-info, 50%)), 5%);
-
-    &,
-    h4 {
-        color: darken($brand-info, 50%);
-    }
+.alert-info,
+.alert-message,
+.alert-notice {
+    background: #d9edf7;
+    border: 1px solid darken(adjust-hue($brand-info, -10), 5%);
+    color: #31708f;
 }
 
 .alert-success {
-    background: lighten($brand-success, 35%);
-    border: 1px solid darken((desaturate($brand-success, 50%)), 5%);
+    background: #dff0d8;
+    border: 1px solid darken(adjust-hue($brand-success, -10), 5%);
+    color: #3c763d;
+}
 
-    &,
-    h4 {
-        color: darken($brand-success, 20%);
-    }
+.alert-warning {
+    background: #fcf8e3;
+    border: 1px solid darken(adjust-hue($brand-warning, -10), 5%);
+    color: #8a6d3b;
 }

@@ -16,7 +16,7 @@
     display: inline-block;
     font-family: $button-family;
     font-weight: $strong-weight;
-    font-size: inherit;
+//    font-size: inherit;
     margin: 0 spacer(1) spacer(4) 0;
     padding: spacer(2) spacer(4);
     width: 100%;
@@ -35,15 +35,6 @@
         background: rgba(0,0,0,.05);
         border-color: $root-color;
         color: $root-color;
-    }
-
-    // Any button with an icon should get extra padding. Duh.
-    &[class^="icon-"],
-    &[class*=" icon-"] {
-
-        &:before {
-            margin-right: .5em;
-        }
     }
 }
 

@@ -1,37 +1,27 @@
 
 /* ==========================================================================
-    BOOTSTRAP 2.3.2 FORM STYLES
+    BOOTSTRAP 2.3.2 FORMS
    ========================================================================== */
 
-.controls {
+/* Extend BS3 styles to yucky BS2 syntax */
 
-    input {
+.form-group {
+
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    select,
+    textarea {
         @extend .form-control;
-    }
-}
-
-.form-horizontal {
-
-    .control-group {
-        margin-bottom: spacer(4);
-
-        .controls {
-            margin: 0 0 0 1em;
-        }
-    }
-
-    .control-label {
-        display: inline-block;
-        text-align: right;
-        width: 10em;
-    }
-
-    .controls {
-        display: inline-block;
-        margin: 0 0 0 11em;
-
-        input {
-            margin: 0;
-        }
     }
 }

@@ -1,0 +1,62 @@
+
+/* ==========================================================================
+    INPUT GROUPS
+   ========================================================================== */
+
+.input-group {
+
+    display: table;
+    margin-bottom: spacer();
+    width: 100%;
+
+    .form-control {
+        position: relative;
+        z-index: 2;
+    }
+
+    &:first-child .form-control,
+    &:last-child [class^="btn-"],
+    &:last-child [class*=" btn-"] {
+        border-radius: $brand-radius 0 0 $brand-radius;
+    }
+
+    &:last-child .form-control,
+    &:first-child [class^="btn-"],
+    &:first-child [class*=" btn-"] {
+        border-radius: 0 $brand-radius $brand-radius 0;
+    }
+
+    [class^="btn-"],
+    [class*=" btn-"] {
+        border-width: 1px;
+        margin: 0;
+    }
+}
+
+.input-group-addon {
+    border: 1px solid $border-color;
+    border-radius: $brand-radius 0 0 $brand-radius;
+    border-right: 0;
+    text-align: center;
+
+    [class^="icon-"],
+    [class*=" icon-"] {
+
+        &:before {
+            margin: 0; // remove icon space
+        }
+    }
+}
+
+.input-group-btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle; // Match the inputs
+}
+
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+    display: table-cell;
+    margin-bottom: 0;
+}

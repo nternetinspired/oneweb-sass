@@ -15,22 +15,3 @@ img[width],
 img[height] {
     max-width: none;
 }
-
-.img-rounded {
-	border-radius: 50%;
-}
-
-/*
- * Image placement variations.
- * floated images typically need a margin so we extend the
- * generic float classes here.
- */
-.img-right {
-    @extend .float-right;
-    margin-left: spacer();
-}
-
-.img-left {
-    @extend .float-left;
-    margin-right: spacer();
-}

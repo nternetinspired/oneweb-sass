@@ -7,6 +7,10 @@
 
     text-align: center;
 
+    @include mq(md) {
+        text-align: left;
+    }
+
 }
 
 .header-row {

@@ -5,13 +5,7 @@
 
 /* Some form basics. */
 form {
-
     margin-bottom: spacer(4);
-
-    ul {
-        list-style-type: none;
-        margin-bottom: 0;
-    }
 }
 
 /* Standardise font rendering */
@@ -38,7 +32,8 @@ label {
 }
 
 legend {
-//    text-transform: uppercase;
+    margin-bottom: spacer();
+    text-transform: uppercase;
 }
 
 input,
@@ -68,7 +63,7 @@ textarea {
 input[type="radio"],
 input[type="checkbox"] {
     display: inline-block;
-    margin: 0 spacer(2) spacer(4) 0;
+    margin-right: spacer(2);
 }
 
 // Make range inputs behave like textual form controls

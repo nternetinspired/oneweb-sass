@@ -9,4 +9,16 @@
     border-radius: $brand-radius;
     margin-bottom: spacer(4);
     padding: spacer(4);
+
+	fieldset,
+	form {
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	.form-control {
+		margin-bottom: 0;
+	}
 }

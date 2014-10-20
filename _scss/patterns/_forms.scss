@@ -62,7 +62,10 @@
         border: 1px solid lighten($brand-success, 20%);
         color: darken($brand-success, 20%);
     }
+}
 
+.form-group {
+    margin-bottom: spacer();
 }
 
 /* Make checkboxes and radio buttons display inline. */
@@ -72,24 +75,4 @@ label {
         display: inline-block;
         margin: 0 1em spacer(4) 0;
     }
-}
-
-.form-inline {
-
-    @include mq(sm) {
-
-        [class*="btn-"]{
-            margin: 0;
-        }
-
-        .form-control {
-            margin-bottom: 0;
-        }
-    }
-}
-
-
-
-.form-horizontal {
-
 }

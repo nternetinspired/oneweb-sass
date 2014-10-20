@@ -7,13 +7,13 @@ $tooltip-arrow-width: 5px;
 
 // Parent element:
 label.hasTooltip {
+    cursor: pointer;
     display: inline-block;
     position: relative;
 
     @include icon(question-circle, after) { // How awesome?
-        color: $border-color;
-        margin-left: .25em;
-        text-shadow: 0 -1px rgba(0,0,0,.25);
+        color: $brand-background;
+        text-shadow: 0 0 1px rgba(0,0,0,.5);
     };
 }
 

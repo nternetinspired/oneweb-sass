@@ -1,0 +1,31 @@
+
+/* ==========================================================================
+	IMAGES
+   ========================================================================== */
+
+.img-bordered {
+	border: 3px solid $border-color;
+}
+
+.img-circle {
+	border-radius: 50%;
+}
+
+.img-rounded {
+	border-radius: $brand-radius;
+}
+
+/*
+* Image placement variations.
+* floated images typically need a margin so we extend the
+* generic float classes here.
+*/
+.img-right {
+	@extend .float-right;
+	margin-left: spacer(4);
+}
+
+.img-left {
+	@extend .float-left;
+	margin-right: spacer(4);
+}

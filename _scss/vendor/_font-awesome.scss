@@ -590,6 +590,14 @@ $icons: (
             @include font-smoothing;
         }
 
+        @if $position == after {
+            margin-left: .5em;
+        }
+
+        @if $position == before {
+            margin-right: .5em;
+        }
+
         // Include any extra rules supplied for the pseudo-element
         @content;
     }

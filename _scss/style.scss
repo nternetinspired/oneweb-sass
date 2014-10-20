@@ -59,12 +59,16 @@
 // The following are re-usable 'objects' that bring recurring CSS patterns
 // into discrete and easily maintainable modules.
 @import "patterns/alerts";
+@import "patterns/breadcrumb";
+@import "patterns/bs-forms";
 @import "patterns/buttons";
 @import "patterns/container";
 @import "patterns/close"; // Specific to certain frameworks.
+@import "patterns/forms";
 @import "patterns/gists";
 @import "patterns/grid";
 @import "patterns/hero";
+@import "patterns/input-groups";
 @import "patterns/labels";
 @import "patterns/lists";
 @import "patterns/media";

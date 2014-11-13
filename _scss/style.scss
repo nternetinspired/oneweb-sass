@@ -60,13 +60,14 @@
 // into discrete and easily maintainable modules.
 @import "patterns/alerts";
 @import "patterns/breadcrumb";
-@import "patterns/bs-forms";
+@import "patterns/bs-forms"; // Extend BS3-type styles to BS2 flavour markup.
+@import "patterns/bs-dropdowns"; // Not planning on menu drop-downs? Comment this out and save!
 @import "patterns/buttons";
 @import "patterns/container";
 @import "patterns/close"; // Specific to certain frameworks.
 @import "patterns/forms";
 @import "patterns/gists";
-@import "patterns/grid";
+@import "patterns/grid"; // Best advice? Comment this out and amke your own damn grid. Grid syntax always adds a merry ton o css that you probably won't use.
 @import "patterns/hero";
 @import "patterns/images";
 @import "patterns/input-groups";
@@ -80,6 +81,7 @@
 @import "patterns/readmore";
 @import "patterns/responsive-tables";
 @import "patterns/section";
+@import "patterns/tables";
 @import "patterns/tabs";
 @import "patterns/tooltips";
 @import "patterns/wells";
@@ -100,3 +102,8 @@
 @import "sections/logo";
 @import "sections/main";
 @import "sections/navigation";
+
+/* VIEWS */
+/* ========================================================================== */
+// CSS specific to individual component views, eg:
+//@import "views/contact";

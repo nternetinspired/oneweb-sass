@@ -8,18 +8,22 @@
 .label-success,
 .label-danger,
 .label-info {
-//    font-weight: $strong-weight;
+
+//    border: 1px solid $root-color;
+    font-weight: $strong-weight;
     padding: .25em .5em;
     text-align: center;
-    background-color: $brand-background;
     border-radius: $brand-radius;
-    @include font-size($scale-down1, 4, 1);
+    @include box-shadow(0 0 0 1px rgba(0,0,0,.25) inset);
+    @include font-size($scale-down1, 4);
+    @include vertical();
 }
 
 /* LABEL COLOURS */
 .label-primary {
     background-color: $brand-primary;
     color: #fff;
+    @include vertical(lighten($brand-primary, 5%), $brand-primary);
 }
 
 .label-success {
@@ -34,6 +38,7 @@
 .label-info {
     background-color: $brand-info;
     color: #fff;
+    @include vertical($brand-info, darken($brand-info, 5%));
 }
 .label-warning {
     background-color: $brand-warning;

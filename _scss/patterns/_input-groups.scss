@@ -14,22 +14,30 @@
         z-index: 2;
     }
 
-    &:first-child .form-control,
-    &:last-child [class^="btn-"],
-    &:last-child [class*=" btn-"] {
-        border-radius: $brand-radius 0 0 $brand-radius;
-    }
-
-    &:last-child .form-control,
-    &:first-child [class^="btn-"],
-    &:first-child [class*=" btn-"] {
-        border-radius: 0 $brand-radius $brand-radius 0;
-    }
-
     [class^="btn-"],
     [class*=" btn-"] {
         border-width: 1px;
         margin: 0;
+    }
+
+    &:last-child [class^="btn-"],
+    &:last-child [class*=" btn-"] {
+        border-radius: $brand-radius 0 0 $brand-radius;
+        border-right: 0;
+    }
+
+    &:first-child .form-control {
+        border-radius: $brand-radius 0 0 $brand-radius;
+    }
+
+    &:first-child [class^="btn-"],
+    &:first-child [class*=" btn-"] {
+        border-left: 0;
+        border-radius: 0 $brand-radius $brand-radius 0;
+    }
+
+    &:last-child .form-control {
+        border-radius: 0 $brand-radius $brand-radius 0;
     }
 }
 
@@ -37,7 +45,9 @@
     border: 1px solid $border-color;
     border-radius: $brand-radius 0 0 $brand-radius;
     border-right: 0;
+    padding: spacer(1);
     text-align: center;
+    @include vertical();
 
     [class^="icon-"],
     [class*=" icon-"] {

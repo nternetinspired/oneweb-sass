@@ -17,13 +17,13 @@
 
 .nav-tabs {
 
-    margin: 0;
+//    margin: 0;
 
     li {
         background: $brand-background;
         border: 1px solid $border-color;
         border-radius: $brand-radius $brand-radius 0 0;
-        margin: 0 spacer(2) -1px 0;
+        margin: spacer() spacer(2) -1px 0;
         padding: spacer(2) spacer(4);
         @include box-shadow(0 0 2px 1px rgba(0,0,0,.025));
         @include transition;

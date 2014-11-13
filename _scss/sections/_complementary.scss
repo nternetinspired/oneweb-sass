@@ -6,6 +6,10 @@
 
 [role="complementary"] {
 
+    .module + .module {
+        margin-top: spacer(8);
+    }
+
     @include mq(md) {
         @extend .md-one-third;
     }

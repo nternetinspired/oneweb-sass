@@ -24,18 +24,18 @@
 
     .media-object {
         float: left;
-        margin: 0 spacer(4) 0 0;
+        margin-right: spacer(4);
         max-width: 50%;
 
         img {
-            margin: 0;
+    //        margin: 0;
         }
     }
 
     &.right {
         .media-object {
             float: right;
-            margin: 0 0 0 spacer(4);
+            margin-left: spacer(4);
         }
     }
 }
@@ -48,7 +48,7 @@
 
         .media-object {
             float: left;
-            margin: 0 spacer(4) 0 0;
+            margin-right: spacer(4);
             max-width: 50%;
 
             img {
@@ -59,7 +59,7 @@
         &.right {
             .media-object {
                 float: right;
-                margin: 0 0 0 spacer(4);
+                margin-left: spacer(4);
             }
         }
     }

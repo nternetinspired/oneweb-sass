@@ -5,7 +5,6 @@
 
 /* PARAGRAPHS */
 p {
-    margin-bottom: spacer(4);
     orphans: 3;
     widows: 3;
     word-wrap: break-word;
@@ -21,8 +20,8 @@ p {
 
     @if $paragraph-indent {
         + p {
-    //        margin-top: spacer(-4);
-    //        text-indent: spacer(4);
+            margin-top: 0;
+            text-indent: spacer(4);
         }
     }
 
@@ -35,11 +34,8 @@ p {
 
 /* Typically used in the first paragraph of an article, for added awesome. */
 .intro {
+    @extend .muted;
     @include font-size($scale-up1);
-
-    @if $paragraph-indent {
-    //    margin-bottom: spacer($scale-up1); $TODO - fix this shit!
-    }
 }
 
 /* BLOCK QUOTES */
@@ -56,13 +52,9 @@ blockquote {
         content: none;
     }
 
-    p:last-of-type {
-        margin-bottom: 0;
-    }
-
     > cite,
     + cite {
-        margin-bottom: 0;
+
     }
 
     @include mq(md) {
@@ -73,7 +65,6 @@ blockquote {
 /* CITATIONS */
 cite {
     display: block;
-    margin-top: spacer(2, $scale-down1);
     @include font-size($scale-down1);
 
     &:before {
@@ -111,11 +102,21 @@ abbr {
 }
 
 small {
-    @include font-size($scale-down1, none, none);
+    @include font-size($scale-down1);
 }
 
 /* SUPER AND SUBSCRIPTS */
+sub,
 sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+
+    top: -0.5em;
 
     @if $opentype == true {
         // Turn on proper supercript numerals
@@ -127,10 +128,18 @@ sup {
 
 sub {
 
+    bottom: -0.25em;
+
     @if $opentype == true {
         // Turn on proper subscript numerals
         -webkit-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
         -moz-font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
         font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
     }
+}
+
+/* BOLDY STUFF */
+b,
+strong {
+  font-weight: $strong-weight;
 }

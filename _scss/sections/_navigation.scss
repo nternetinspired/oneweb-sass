@@ -6,11 +6,14 @@
 /* MAIN NAVIGATION */
 .nav-primary {
 
-    font-family: $heading-family;
     vertical-align: middle;
 
     @include mq(md) {
         text-align: right;
+
+        ul {
+        //    margin: 0;
+        }
     }
 }
 

@@ -5,6 +5,8 @@
 
 .breadcrumb {
 
+    @extend .list-unstyled;
+
     @include font-size($scale-down1);
 
     li {

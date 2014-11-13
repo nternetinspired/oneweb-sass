@@ -5,44 +5,51 @@
 // Displays big text, on a colored background, with padding.
 .hero {
 	position: relative;
-	text-align: center;
 	z-index: 1;
 
-	h1, .alpha,
-	h2, .beta {
+	.lede {
+
+		@include font-size($scale-up1, none);
+
+		@include mq(sm) {
+			@include font-size($scale-up2, none);
+		}
+
+		@include mq(md) {
+			@include font-size($scale-up4, none);
+		}
 
 		@include mq(lg) {
-			@include font-size($scale-up5);
+			@include font-size($scale-up5, none);
 		}
 	}
 
-	p {
-		@include font-size($scale-up1);
+	.sub {
 
-		@include mq(md) {
+		@include mq(sm) {
+			@include font-size($scale-up1);
+		}
+
+		@include mq(lg) {
 			@include font-size($scale-up2);
 		}
 	}
 
-	// Reversed text hero, for use on dark backgrounds or over dark images.
-	&.reversed {
-
-		&,
-		h1, .alpha,
-		h2, .beta {
-			color: $body-background !important;
-		}
+	// Reversed text hero helper, for use on dark backgrounds or over dark images.
+	&-reversed {
+		color: $body-background !important;
 	}
-}
 
-// Displays big text, with padding, centered over an image.
-.hero-image {
-	@extend .hero;
-	background-size: cover;
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
+	// Displays big text, with padding, centered over an image.
+	&-image {
+		@extend .hero;
+		background-size: cover;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
 
-	img {
-		width: 100%;
+		img {
+			@extend .margin-off;
+			width: 100%;
+		}
 	}
 }

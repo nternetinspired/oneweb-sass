@@ -5,10 +5,10 @@
 
 /* Blog and article pagination */
 .pagination {
+    @extend .nav;
     text-align:center;
 
     ul {
-        @extend .nav;
 
         span {
             padding: spacer(2);
@@ -19,18 +19,21 @@
 /* Article pagination */
 .pagenav {
 
+    @extend .nav;
+    margin-left: spacer(-1.5);
+    padding-top: spacer(4);
+
     li {
-        display: inline-block;
 
         a {
             @extend %btn;
-            margin: 0;
         }
     }
 
     .previous {
 
     }
+
     .next {
         float: right;
         text-align: right;

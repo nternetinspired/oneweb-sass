@@ -7,18 +7,10 @@
 	background: $brand-background;
 	border: 1px solid $border-color;
     border-radius: $brand-radius;
-    margin-bottom: spacer(4);
     padding: spacer(4);
-
-	fieldset,
-	form {
-
-		&:last-of-type {
-			margin-bottom: 0;
-		}
-	}
+	@include box-shadow(0 0 2px 1px rgba(0, 0, 0, 0.025));
 
 	.form-control {
-		margin-bottom: 0;
+		background: $body-background;
 	}
 }

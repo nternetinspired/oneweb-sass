@@ -10,8 +10,10 @@ html {
     color: $root-color;
     overflow-y: scroll;
 
-    -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+    -ms-text-size-adjust: 100%;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
 }
 
 /*
@@ -23,6 +25,14 @@ html {
     box-sizing: inherit;
 }
 
+/*
+ * Lobotomized owls FTW!
+ * http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+ */
+
+* + * {
+    margin-top: spacer(4);
+}
 
 @if $opentype == true {
 
@@ -41,6 +51,8 @@ html {
 body {
     background: $body-background;
     font: #{$root-weight} #{$root-size-em}/#{$root-lineheight} $root-family;
+    margin: 0;
+    @include font-smoothing;
 
     // If set in project vars show the typographic baseline visually
     @if $show-baseline == true {

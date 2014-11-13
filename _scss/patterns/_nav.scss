@@ -6,17 +6,21 @@
 /* Remove list styles and throw child elements into a horizontal list. */
 .nav {
 
+    @extend .margin-off-all;
+
     list-style: none;
+    font-weight: $strong-weight;
     padding: 0;
-    margin-bottom: spacer();
+    margin-left: spacer(-3);
 
     a {
         display: block;
+        padding: spacer(1.5) spacer(2);
     }
 
-    li {
+    > li {
         display: inline-block;
-        margin-right: .75em;
+        margin-left: spacer(1.5);
     }
 
 }
@@ -26,10 +30,12 @@
 
     li {
 
+        @extend .margin-off-all;
         display: block;
 
         a {
-            padding: spacer(2) spacer(4);
+            display: block;
+
         }
     }
 }

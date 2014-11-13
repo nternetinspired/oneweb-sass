@@ -5,19 +5,20 @@
 
 .logo-block {
     display: inline-block;
-    margin-bottom: spacer(4);
+//    margin-bottom: spacer(4);
 
     @include mq(md) {
-    //    margin-bottom: 0;
+//        margin-bottom: 0;
         vertical-align: middle;
     }
 }
 
 .logo {
     background: url(../img/logo.png) no-repeat;
-    background-size: 120px;
+    background-size: 90px;
     display: inline-block;
-    height: 120px;
-    width: 120px;
+    height: 90px;
+    vertical-align: middle;
+    width: 90px;
     @include text-hide;
 }

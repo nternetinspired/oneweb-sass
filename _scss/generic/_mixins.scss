@@ -28,6 +28,40 @@
     }
 }
 
+// @include triangle within a pseudo element and add positioning properties
+// (ie. top, left) $direction: up, down, left, right
+@mixin triangle($direction, $size: 15px, $color: $root-color) {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 0;
+    width: 0;
+
+    @if ($direction == 'up'){
+        border-bottom: $size solid $color;
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+    }
+
+    @else if ($direction == 'down'){
+        border-top: $size solid $color;
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+    }
+
+    @else if ($direction == 'left'){
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+    }
+
+    @else if ($direction == 'right'){
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+    }
+}
+
 // Font-face syntax, the easy way
 @mixin font-face($family,$src,$weight: normal,$style: normal) {
 	@font-face {
@@ -44,10 +78,12 @@
 }
 
 // Vertically and horizontally center something of unknown size inside and parent of unknown size.
-@mixin centered {
+@mixin center {
+    margin-top: 0;
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 100%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -103,7 +139,7 @@
 }
 
 // Basic vertical gradients.
-@mixin vertical($startColor: $brand-background, $endColor: darken($brand-background, 2%)) {
+@mixin vertical($startColor: $brand-background, $endColor: darken($brand-background, 5%)) {
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
     background-image: -webkit-linear-gradient(top, $startColor, $endColor);                    // Safari 5.1+, Chrome 10+
     background-color: $endColor;
@@ -133,8 +169,20 @@
         }
     }
 
+    @if $media-query == sm-max {
+        @media only screen and (max-width: $sm) {
+            @content;
+        }
+    }
+
     @if $media-query == md {
         @media only screen and (min-width: $md) {
+            @content;
+        }
+    }
+
+    @if $media-query == md-max {
+        @media only screen and (max-width: $md) {
             @content;
         }
     }
@@ -145,8 +193,20 @@
         }
     }
 
+    @if $media-query == lg-max {
+        @media only screen and (max-width: $lg) {
+            @content;
+        }
+    }
+
     @if $media-query == xl {
         @media only screen and (min-width: $xl) {
+            @content;
+        }
+    }
+
+    @if $media-query == xl-max {
+        @media only screen and (max-width: $xl) {
             @content;
         }
     }
@@ -188,18 +248,18 @@ $baseline-distance: ($root-lineheight - $cap-height) / 2;
 
 // Add proportional space, increasing with viewport and maintaining vertical rhythm.
 @mixin space {
-    padding: spacer(4) spacer(4) 0;
+    padding: spacer(2) spacer(4);
 
     @include mq(sm) {
-        padding: spacer(6) spacer(6) spacer(2);
+        padding: spacer(4) spacer(4);
     }
 
     @include mq(md) {
-    //    padding: spacer(8) spacer(8) spacer(4);
+        padding: spacer(6) spacer(4);
     }
 
     @include mq(lg) {
-    //    padding: spacer(10) spacer(10) spacer(6);
+        padding: spacer(8) spacer(4);
     }
 }
 
@@ -279,6 +339,6 @@ $baseline-distance: ($root-lineheight - $cap-height) / 2;
 
     // Use the margin spacer value, if it's an integer.
     @if (type-of($spacer) == number) {
-        margin-bottom: spacer($spacer, $font-size);
+        margin-top: spacer($spacer, $font-size);
     }
 }

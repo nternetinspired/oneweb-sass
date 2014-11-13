@@ -3,13 +3,16 @@
     MAIN
    ========================================================================== */
 
-
 [role="main"] {
 
-    @include mq(md) {
-        @extend .md-two-thirds;
-    }
+    @extend .margin-off;
 
+    &.col { // If a module is published to 'complementary' this class is added
+
+        @include mq(md) {
+            @extend .md-two-thirds;
+        }
+    }
 }
 
 .main {

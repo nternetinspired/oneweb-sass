@@ -4,14 +4,15 @@
 
 .alert {
     border-radius: $brand-radius;
+    margin-bottom: spacer(4);
     padding: spacer(4);
     position: relative;
-    margin-bottom: spacer(4);
 
-    p:last-child {
-        margin: 0;
+    &-heading {
+        margin-top: 0;
     }
 }
+
 
 .alert-danger,
 .alert-error {

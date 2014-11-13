@@ -1,0 +1,37 @@
+
+/* ==========================================================================
+	VCARD
+   ========================================================================== */
+
+/* Compact contact details */
+.vcard {
+
+    dl {
+
+        padding: 0;
+
+        dt,
+        dd {
+            display: inline-block;
+            margin: 0;
+            padding: 0
+        }
+
+        @include mq(sm) {
+            float: left;
+            margin: 0 1em spacer(4) 0;
+        }
+    }
+
+    .company {
+        @include mq(md) {
+            float: left;
+            margin: 0 1em 0 0;
+        }
+    }
+
+    .company,
+    dl dt {
+        font-weight: $strong-weight;
+    }
+}

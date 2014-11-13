@@ -7,6 +7,7 @@ pre,
 code,
 kbd,
 samp {
+
     font-family: $code-font-family;
 
     @if $opentype == true {
@@ -23,6 +24,5 @@ pre {
     background-color: $pre-background;
     border: 1px solid $border-color;
     border-radius: $brand-radius;
-    margin: 0 auto spacer(4) auto;
     padding: spacer(4);
 }

@@ -3,16 +3,12 @@
     LISTS
    ========================================================================== */
 
-.list-unstyled {
-    list-style-type: none;
-}
-
 .list-block {
 
     @extend .list-unstyled;
 
     li {
-    //    margin-bottom: spacer(2);
+
     }
 }
 
@@ -24,6 +20,22 @@
         display: inline-block;
         margin-right: .5em;
     }
+}
 
+.list-styled {
+    @extend .list-unstyled;
 
+    li {
+        @extend .margin-off;
+        border-bottom: 1px solid $root-background;
+        padding: spacer(1) 0;
+    }
+}
+
+.list-unstyled {
+
+    &,
+    ul {
+        list-style-type: none;
+    }
 }

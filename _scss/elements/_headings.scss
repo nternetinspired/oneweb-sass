@@ -12,7 +12,6 @@ h6, .zeta {
     color: $heading-color;
     font-family: $heading-family;
     font-weight: $heading-weight;
-    @include font-smoothing;
 
     @if $opentype == true {
         // Turn on discretionary ligatures for larger headings
@@ -29,10 +28,10 @@ h6, .zeta {
  */
 h1,
 .alpha {
-    @include font-size($scale-up3);
+    @include font-size($scale-up3, none);
 
     @include mq(lg) {
-        @include font-size($scale-up4);
+        @include font-size($scale-up4, none);
     }
 
 }
@@ -67,6 +66,7 @@ h4,
 h5, .epsilon,
 h6, .zeta {
 
+    font-weight: $strong-weight;
     @include font-size($scale-down1);
 
     @include mq(lg) {
